@@ -39,6 +39,7 @@
 \newcommand\A{\mathbb{A}}
 \newcommand\C{\mathbb{C}}
 \newcommand\I{\mathcal{I}}
+\newcommand\Q{\mathbb{Q}}
 \newcommand\Z{\mathbb{Z}}
 \newcommand\N{\mathbb{N}}
 \newcommand\E{\mathcal{E}}
@@ -208,7 +209,7 @@ A generalization is of course ``$a$ is $n$-th power if $ord_p(a)$ is
 divisible by $n$ for all primes $p$. There's a slight error in the
 question -- one also needs to look at the sign of $a$ -- $-4$ is not a
 square of another integer, even though $ord_p(a)$ is even for all
-primes $p$. We'll therefore assume that $a \in \mathbb{N}$.
+primes $p$. We'll therefore assume that $a \in \N$.
 
 The exercise is obvious once we look at the unique factorization -- we have:
 \begin{equation}
@@ -385,7 +386,7 @@ a^2 + b^2$. From the properties of $\lambda$ deduce the identity $(a^2
 + b^2)(c^2 + d^2) = (ac - bd)^2 + (ad + bc)^2$.
 
 It is not clear what exactly properties of $\lambda$ they mean, but
-most likely the fact that $\lambda((ab) = \lambda(a)\lambda(b)$, which
+most likely the fact that $\lambda(ab) = \lambda(a)\lambda(b)$, which
 is never stated in the text, but amounts to proving this very
 identity.
 
@@ -982,5 +983,1168 @@ pairwise incongruent modulo $n$ and $(a_i, n) = 1$ for all $i$. If
 $(a, n) = 1$, prove that $aa_1 , aa_2, \ldots, aa_{\phi(n)}$ is again
 a reduced residue system modulo $n$.
 
+Let $b$ be inverse to $a$ modulo $n$, that is, $ab \equiv 1 \pmod n$
+(it exists, because $(a, n) = 1 \pmod n$. Suppose $aa_i \equiv aa_j
+\pmod n$. Then $ba a_i \equiv baa_j \pmod n$, so $a_i \equiv a_j \pmod
+n$, and so $i = j$, thus $aa_1, aa_2, \ldots, aa_{\phi(n)}$ are
+pairwise incongruent. As $(a,n) = 1$ and $(a_i, n) = 1$, we also have
+$(aa_i, n) = 1$ -- otherwise, if $aa_i$ and $n$ had common prime
+factor, it would have to be one of the factors of $a$ or $a_i$, but
+they have no common factors with $n$.
+
+\paragraph{Ex. 3.7}
+Use Ex. 2.6 to give another proof of Euler's theorem, $a^{\phi(n)}
+\equiv 1 \pmod n$ for $(a, n) = 1$.
+
+If $a_1, \ldots, a_{\phi(n)}$ and $b_1, \ldots, b_{\phi(n)}$ are two
+reduced residue systems modulo $n$, there exists a unique bijection
+$f$ such that $a_i \equiv b_{f(i)} \pmod n$ for all $i$ -- to find it,
+note that $a_1 \mod n, \ldots, a_{\phi(n)} \mod n$ are all the
+different integers between $1$ and $n$ relatively prime to $n$, and
+same for $b_i$. Thus, we have:
+
+\begin{equation}
+  \prod_{i=1}^{\phi(n)} a_i \equiv \prod_{i=1}^{\phi(n)} b_{f(i)} = \prod_{i=1}^{\phi(n)} b_{i} \pmod n
+\end{equation}
+
+Now take $b_i = a a_i$. We have:
+\begin{equation}
+  \prod_{i=1}^{\phi(n)} a_i \equiv \prod_{i=1}^{\phi(n)} aa_i = a^{\phi(n)} \prod_{i=1}^{\phi(n)} a_i\pmod n
+\end{equation}
+
+Since all $a_i$ are invertible modulo $n$, their product also is, so
+multiplying the equation above by the inverse of
+$\prod_{i=1}^{\phi(n)} a_i$ we get the desired equality.
+
+\paragraph{Ex. 3.8}
+Let $p$ be an odd prime. If $k \in \{1, 2, \ldots, p - 1\}$, show that
+there is a unique $b_k$ in this set such that $kb_k \equiv 1 \pmod
+p$. Show that $k \ne b_k$ unless $k = 1$ or $k = p - 1$.
+
+The existence and uniqueness of $b_k$ follow from the fact that
+$\Z/p\Z$ is a field. Now assume that $k^2 \equiv 1 \pmod p$, or
+equivalently $k^2 - 1 \equiv 0 \pmod p$. Then $(k-1)(k+1) \equiv 0
+\pmod p$, but since $\Z/p\Z$ is an field, either $k-1 \equiv 0 \pmod
+p$, or $k+1 \equiv 0 \pmod p$. First case corresponds to $k = 1$, and
+the second to $k = p-1$.
+
+\paragraph{Ex. 3.9}
+Use Ex. 3.7 to prove that $(p - 1)! \equiv -1 \pmod p$.
+
+Of course, authors here mean Ex. 3.8, and the desired inequality
+follows immediately from it -- since every $k$ except of $k = p-1$ is
+uniquely paired with corresponding $b_k$ such that $k b_k \equiv 1
+\pmod p$, we can group factors of $(p-1)!$ other than p-1 into pairs
+such that their product is congruent to $1$ modulo $p$. Thus $(p-1)!
+\equiv p-1 \equiv -1 \pmod p$.
+
+\paragraph{Ex. 3.10}
+If $n$ is not a prime, show that $(n - 1)! \equiv 0 \pmod n$, except
+when $n = 4$.
+
+If $n$ is not a prime and not a square of a prime, it can be written
+as $n = a b$ with $1 < a < b < n$. Both $a$ and $b$ are factors of
+$(n-1)!$, but since $ab \equiv 0 \pmod n$, $(n-1)! \equiv 0 \pmod n$
+also.
+
+If $n$ is a square of a prime, $n = p^2$, and $n \ne 4$, then $1 < p <
+2p < p^2$, so both $p$ and $2p$ are factors of $(p^2 - 1)!$, but $p
+\cdot 2p = 2p^2 \equiv 0 \pmod {p^2}$.
+
+If $n = 4$, $(n-1)! = 2 \cdot 3 = 6 \equiv 2 \pmod 4$.
+
+\paragraph{Ex. 3.11}
+Let $a_1, \ldots, a_{\phi(n)}$ be a reduced residue system modulo $n$
+and let $N$ be the number of solutions to $x^2 \equiv 1 \pmod
+n$. Prove that $a_1 \cdots a_{\phi(n)} \equiv (-1)^{N/2} \pmod n$.
+
+All of $a_1, \ldots, a_{\phi(n)}$ are invertible modulo $n$, and their
+inverse is also in this set. If $a_i^2 \equiv 1 \pmod n$, then also
+$(-a_i)^2 \equiv 1 \pmod n$, and moreover, $a_i$ is not congruent to
+$-a_i$ modulo $n$ -- otherwise, if $a_i \equiv -a_i \pmod n$, we'd
+have $2 a_i \equiv 0 \pmod n$, which cannot happen, since $a_i$ is
+invertible modulo $n$. Therefore, $a_i$ can be grouped into pairs --
+if $a_i^2 \equiv 1$, we group $a_i$ with $-a_i$, and if $a_i^2 \not
+\equiv 1$, we group it with its inverse, which is also in the reduced
+residue system. Thus, we get $\phi(n)/2$ pairs. For pairs of the form
+$\{a_i, a_i^{-1}\}$ the product $a_i a_i^{-1}$ is congruent to $1$
+modulo $n$, and for pairs of the form $\{a_i, -a_i\}$ their product
+is congruent to $-1$ modulo $n$. There are exactly $N/2$ pairs of the
+second form, from which the desired congruence follows.
+
+\paragraph{Ex. 3.12}
+Let ${p \choose k} = \frac{p!}{k!(p-k)!}$ be a binomial coefficient,
+and suppose $p$ is prime. If $1 \leq k \leq p-1$, show that $p$
+divides ${p \choose k}$. Deduce $(a+b)^p \equiv a^p + b^p \pmod p$.
+
+The divisibility is clear: since ${p \choose k} =
+\frac{p!}{k!(p-k)!}$, $p$ divides the numerator, but none of the
+factors in the denominator is divisible by $p$, as they all are
+integers smaller than $p$.
+
+The desired congruence now follows from the application of the
+binomial theorem:
+
+\begin{equation}
+  (a+b)^p = \sum_{k=0}^p {p \choose k} a^k b^{p-k} \equiv a^p + b^p \pmod p
+\end{equation}
+
+The congruence holds, since ${p \choose k} a^k b^{p-k} \equiv 0 \pmod
+p$, for $1 \leq k \leq p-1$, since ${p \choose k}$ is then divisible
+by $p$.
+
+\paragraph{Ex. 3.13}
+Use Ex. 3.12 to give another proof of Fermat's theorem, $a^{p-1}
+\equiv 1 \pmod p$ if $p$ does not divide $a$.
+
+As $a$ is invertible modulo $p$, it is enough to prove that $a^p
+\equiv a \pmod p$. We proceed by induction on $a$. The case $a = 1$ is
+trivial. Assume that $(a-1)^p \equiv a-1 \pmod p$. By Ex. 3.12 we have:
+
+\begin{equation}
+  a^p = ((a-1)+1)^p \equiv (a-1)^p + 1 \equiv a-1 + 1 = a \pmod p
+\end{equation}
+
+\paragraph{Ex. 3.14}
+Let $p$ and $q$ be distinct odd primes such that $p - 1$ divides $q -
+1$. If $(n, pq) = 1$, show that $n^{q - 1} \equiv 1 \pmod {pq}$.
+
+The congruence $n^{q - 1} \equiv 1 \pmod {pq}$ is equivalent to
+$n^{q-1} - 1$ being divisible by $pq$, which in turns is equivalent to
+being divisible by both $p$ and $q$, thus $n^{q - 1} \equiv 1 \pmod
+{pq}$ iff both $n^{q - 1} \equiv 1 \pmod {p}$ and $n^{q - 1} \equiv 1
+\pmod {q}$. The second congruence follows immediately from Euler's
+theorem, while the first congruence follows from the fact that $q-1 =
+a(p-1)$ for some $a$, so since by Euler theorem $n^{p-1} \equiv 1
+\pmod p$, $n^{q-1} = n^{a(p-1)} = (n^{p-1})^a \equiv 1^a = 1 \pmod p$.
+
+\paragraph{Ex. 3.15}
+For any prime $p$ show that the numerator of $1+ \frac{1}{2} +
+\frac{1}{3} + \ldots + \frac{1}{p}-1$ is divisible by $p$.
+
+The theorem as stated is clearly wrong, e.g. for $p = 2$, $1 + 1/2 - 1
+= 1/2$, for $p = 3$ we have $1 + 1/2 + 1/3 -1 = 5/6$. We'll show the
+opposite theorem, namely that the numerator is \emph{not} divisible by
+$p$.
+
+We have:
+\begin{equation}
+  \frac{1}{2} + \frac{1}{3} + \ldots + \frac{1}{p} = \frac{p!/2 + p!/3
+    + \ldots + p!/p}{p!}
+\end{equation}
+
+Note that $p!/k$ are integers, all of which are divisible by $p$,
+except of the last one, which is not. Thus, their sum will not be
+divisible by $p$.
+
+\paragraph{Ex. 3.16}
+Use the proof of the Chinese Remainder Theorem to solve the system $x \equiv 1 \pmod 7$,
+$x \equiv 4 \pmod 9$, $x \equiv 3 \pmod 5$.
+
+Skipped.
+
+\paragraph{Ex. 3.17}
+Let $f(x) \in \Z[x]$ and $n = p_1^{a_1} \cdots p_t^{a_t}$. Show that
+$f(x) \equiv 0 \pmod n$ has a solution iff $f(x) \equiv 0 \pmod
+{p_i^{a_i}}$ has a solution for $i = 1, \ldots, t$.
+
+Follows from Ex. 3.13.
+
+\paragraph{Ex. 3.18}
+For $f \in \Z[x]$, let $N$ be the number of solutions to $f(x) \equiv
+0 \pmod n$ and $N_i$ be the number of solutions to $f(x) \equiv 0
+\pmod {p_i^{a_i}}$. Prove that $N = \prod N_i$.
+
+Let $(b_1, \ldots, b_t)$ be a solution to a system $f(x) \equiv 0
+\pmod {p_i^{a_i}}$. By Chinese remainder theorem there exists $x$ such
+that $x \equiv b_i \pmod {p_i^{a_i}}$. We claim that $x$ is a solution
+to $f(x) \equiv 0 \pmod n$. Indeed, this is the same as saying that
+$f(x)$ is divisible by $p_i^{a_i}$ for $i = 1, \ldots, t$. But since
+$x \equiv b_i \pmod {p_i^{a_i}}$, and $f$ is a polynomial, $f(x)
+\equiv f(b_i) \equiv 0 \pmod {p_i^{a_i}}$, so $f(x)$ is divisible by
+${p_i^{a_i}}$ for all $i$.
+
+Thus, there's a one-to-one correspondence between tuples $(b_1,
+\ldots, b_t)$ forming solutions to $f(x) \equiv 0 \pmod {p_i^{a_i}}$,
+and $x$-s being the solutions to $f(x) \equiv 0 \pmod {n}$.
+
+\paragraph{Ex. 3.19}
+If $p$ is an odd prime, show that $1$ and $-1$ are the only solutions
+to $x^2 \equiv 1 \pmod {p^a}$.
+
+The given equation is equivalent to asking for $1 < x < p^a-1$ such
+that $x^2 - 1$ is divisible by ${p^a}$. Now $x^2 - 1 = (x-1)(x+1)$,
+and since $p > 2$, if one factor is divisible by $p$, the other factor
+isn't, so the only way $(x-1)(x+1)$ is divisible by $p^a$ is that
+either $p^a$ divides $x-1$, or it divides $x+1$. As $1 < x < p^a-1$,
+this is impossible.
+
+\paragraph{Ex. 3.20}
+Show that $x^2 \equiv 1 \pmod {2^b}$ has one solution if $b = 1$, two
+solutions if $b = 2$, and four solutions if $b \geq 3$.
+
+The cases $b=1$ and $b=2$ are trivial, so assume that $b \geq 3$. We
+ask for $1 \leq x \leq 2^b - 1$ such that $(x-1)(x+1)$ is divisible by
+$2^b$, which is the same as asking that $ord_2(x-1)(x+1) = b$. We have
+$(x-1, x+1) = 2$, so necessarily $ord_2(x-1)(x+1) \leq
+\max(ord_2(x-1), ord_2(x+1)) + 1$.  For $1 < x < 2^b - 1$,
+$\max(ord_2(x-1), ord_2(x+1)) + 1 < b$ except for $x$ such that $x-1 =
+2^{b-1}$ or $x+1 = 2^{b-1}$. These are 2 solutions, and since $b > 3$,
+they aren't equal to $x = 1$ or $x = -1$.
+
+\paragraph{Ex. 3.21}
+Use Ex. 3.18-3.20 to find the number of solutions to $x^2 \equiv 1 \pmod n$.
+
+Write $n = 2^a p_1^{a_1} \cdots p_t^{a_t}$ for $p_1 \ne 2$. By
+Ex. 3.18, the number of solutions is equal the number of solutions
+modulo $2^a$ times the numbers of solutions modulo $p_i^{a_i}$. By
+Ex. 3.19 and 3.20, this is equal to $2^t$ for $a = 0, 1$, $2^{t+1}$
+for $a = 2$ and $2^{t+2}$ for $a \geq 3$.
+
+\paragraph{Ex. 3.22}
+Formulate and prove the Chinese Remainder Theorem in a principal ideal
+domain.
+
+Let $A$ be a PID. Let $m_1, \ldots, m_n$ be such that $(m_i, m_j) =
+A$. Then $A/(m_1 \cdots m_n) \simeq A/(m_1) \times \cdots \times
+A/(m_n)$.
+
+The proof is omitted, as it is exactly the same as proof for $\Z$.
+
+\paragraph{Ex. 3.23}
+Extend the notion of congruence to the ring $\Z[i]$ and prove that $a
++ bi$ is always congruent to $0$ or $1$ modulo $1 + i$.
+
+Let $\pi$ be a prime element of $\Z[i]$. Then for $x, y \in \Z[i]$,
+$x$ is said to be congruent modulo $\pi$ iff $x-y$ is divisible by
+$\pi$.
+
+Note that $(1+i)^2 = 1 + 2i - i^2 = 2i$, so $2i \equiv 0 \pmod
+{1+i}$. Now take any $a + bi \in \Z[i]$. If $a-b$ is even, then:
+
+\begin{equation}
+  a+bi \equiv a+bi + \frac{a-b}{2} \cdot 2i \equiv a+ai \equiv a(1+i)
+  \equiv 0 \pmod {1+i}
+\end{equation}
+
+Alternatively, if $a-b$ is odd, then $a-1+bi \equiv 0 \pmod {1+i}$ by
+the reasoning above, so $a-1+bi \equiv 0 \pmod {1+i}$, and so $a + bi
+\equiv 1 \pmod {1+i}$.
+
+\paragraph{Ex. 3.24}
+Extend the notion of congruence to the ring $\Z[\omega]$ and prove
+that $a + b\omega$ is always congruent to $-1$, $0$ or $1$ modulo $1 -
+\omega$.
+
+Note that $(1-\omega)(1+\omega)(1-\omega) = (1 - \omega^2)(1-\omega) =
+(1 - \bar{\omega})(1-\omega) = 1 - \omega - \bar{\omega} +
+\omega\bar{\omega} = 1 - (2 \Re \omega) + |\omega|^2 = 1 + 1 + 1
+=3$. Reasoning now is similar to the reasoning in Ex. 3.23.
+
+\paragraph{Ex. 3.25}
+Let $\lambda = 1 -\omega \in \Z[\omega]$. If $\alpha \in \Z[\omega]$
+and $\alpha \equiv 1 \pmod \lambda$, prove that $\alpha^3 \equiv 1
+\pmod 9$.
+
+If $\alpha \equiv 1 \pmod \lambda$, then $\alpha = 1 + \beta \lambda$,
+for some $\beta \in \Z[\omega]$. Then $\alpha^3 = 1 + 3 \beta \lambda
++ 3 \beta^2 \lambda^2 + \beta^3 \lambda^3$. Substituting $\lambda = 1
+- \omega$, we get:
+
+\begin{eqnarray}
+  \alpha^3 - 1 &=& 3 \beta \lambda + 3 \beta^2 \lambda^2 + \beta^3
+  \lambda^3 \\ &=& 3 \beta - 3 \beta \omega + 3 \beta^2 - 6 \beta^2
+  \omega + 3 \beta^2 \omega^2 - 3 \beta^3 \omega + 3 \beta^3 \omega^2
+  \\ &=& 3 \beta(1 - \omega + \beta - 2 \beta \omega + \beta \omega^2
+  - \beta^2 \omega + \beta^2 \omega^2) \\ &=& 3\beta(1 - 2 \beta
+  \omega + \beta^2 \omega^2 - \omega + \beta \omega^2 + \beta -
+  \beta^2 \omega) \\ &=& 3 \beta((1 - \beta \omega)^2 - \omega(1 -
+  \beta \omega) + \beta(1 - \beta \omega)) \\ &=& 3 \beta (1 - \beta
+  \omega)(1 - \beta \omega - \omega + \beta) \\ &=& 3 \beta (1 - \beta
+  \omega)(1 + \beta)(1- \omega)
+\end{eqnarray}
+
+It is now enough to show that $\beta (1 - \beta \omega)(1 + \beta)(1-
+\omega)$ is divisible by $3$, so we can work modulo $3$. We let $\beta
+= a + b \omega$, and after reducing modulo $3$ we can assume that $-1
+\leq a, b \leq 1$. We have:
+
+\begin{eqnarray}
+  \label{eq:fukken-9}
+   \beta (1 - \beta \omega)(1 + \beta)(1- \omega) &=& 3(a +
+   b\omega)(1-(a + b \omega)\omega)(1 + a + b \omega)(1-\omega) \\ &=&
+   (a + b\omega)(1-a \omega - b \omega^2)(1 + a + b \omega)(1-\omega)
+   \\ &=& (a + b\omega)(1+b +(b-a) \omega)(1 + a + b \omega)(1-\omega)
+\end{eqnarray}
+
+We need to prove that the expression above is divisible by 3. If $a =
+b = 0$, it is trivial so we can assume that at least one of $a, b$ is
+nonzero.  Note that $-\omega^2 (1-\omega)^2 = -\omega^2 (1 - 2 \omega
++ \omega^2) = - \omega^2 + 2 - \omega = 3 - 1 - \omega - \omega^2 =
+3$, so $(1-\omega)^2$ is divisible by $3$.
+
+If $a = 1, b = -1$, $a + b \omega = 1 - \omega$, so we get two factors
+of $1-\omega$ in (\ref{eq:fukken-9}). If $a = 1, b = 0$, then $(1+b
++(b-a) \omega) = 1 - \omega$. If $a = 1, b = 1$, then $(1+a+b\omega) =
+2 + \omega$ (note that this is the same case as $-1 + \omega$). We can
+multiply it by $\omega$ (which is invertible) to get $\omega(2 +
+\omega) = 2 \omega + \omega^2 = 2 - 1 - \omega = 1 - \omega$.
+
+If $a = -1$, $b = -1$, then $1 + b + (b - a)\omega = 0$, and so the
+whole expression is 0, which is divisible by 3. If $a = -1, b = 0$,
+then $1 +b + (b-a)\omega = 1 - \omega$. The case $a = -1, b = 1$ has
+been dealt with above.
+
+In all cases, we get the expression to equal 0, to have factor of
+$(1-\omega)^2$, or to have a factor associated to $(1-\omega)^2$
+through multiplication by $\omega$, and so we are done.
+
+This seems to be like a very brute force approach to the problem
+above, and so I'm looking for a cleaner approach.
+
+\paragraph{Ex. 3.26}
+Use Ex. 3.25 to show that $\xi, \eta, \zeta$ are not zero and $\xi^3 +
+\eta^3 + \zeta^3 = 0$, then $\lambda$ divides at least one of the
+elements $\xi, \eta, \zeta$.
+
+Assume that $\lambda$ divides none of $\xi, \eta, \zeta$. We aim to
+show contradiction. By Ex. 3.24 we know that each of $\xi, \eta,
+\zeta$ must be congruent to $-1$ or $1$ modulo $\lambda$. Clearly
+$\alpha^3 \equiv \alpha \pmod \lambda$ for any $\alpha$, so since
+$\xi^3 + \eta^3 + \zeta^3 = 0$, and since $-1, 0, 1$ are different
+classes modulo $\lambda$, necessarily we have $\xi \equiv \eta \equiv
+\zeta \equiv \pm 1 \pmod \lambda$. Multiplying by $-1$, which is
+invertible, we can assume that they all are congruent to $1$ modulo
+$\lambda$. Then, Ex. 3.25 tells us that $\xi^3 + \eta^3 + \zeta^3
+\equiv 3 \pmod 9$, but $\xi^3 + \eta^3 + \zeta^3 = 0$ and $0 \not
+\equiv 3 \pmod 9$, which is a contradiction.
+
+\section{Chapter 4}
+
+\paragraph{Ex. 4.1}
+Show that $2$ is a primitive root modulo $29$.
+
+We are asked to show that $2$ generates the multiplicative group of
+the field $\Z/29\Z$, which has order $28$. Since $28 = 4 \cdot 7$,
+it's enough that we show that its orderd is not either $2$, $4$, $7$
+or $14$.
+
+Note that $2^2 \equiv 4 \pmod {29}$, $2^4 \equiv 16 \pmod {29}$, $2^7
+\equiv 4 \cdot 2^5 \equiv 4 \cdot 32 \equiv 4 \cdot 3 \equiv 12 \pmod
+{29}$, and $2^{14} \equiv (2^7)^2 \equiv 12^2 \equiv 144 \equiv 28 \pmod
+{29}$.
+
+\paragraph{Ex. 4.2}
+Compute all primitive roots for $p = 11, 13, 17$, and $19$.
+
+Skipped.
+
+\paragraph{Ex. 4.3}
+Suppose that $a$ is a primitive root modulo $p^n$, $p$ an odd
+prime. Show that $a$ is a primitive root modulo $p$.
+
+Assume that $a$ is not a primitive root modulo $p$, that is, $a^k
+\equiv 1 \pmod p$ for some $k | p-1$, $k < p-1$. By repeated
+application of Lemma 3, from $a^k \equiv 1 \pmod p$ we get
+$(a^k)^{p^{n-1}} \equiv 1^{p^{n-1}} \pmod {p^n}$, so order of $a$ is
+no larger than $k p^{n-1}$, which is smaller than $\phi(p^n) =
+p^{n-1}(p-1)$. Therefore, $a$ cannot be a primitive root modulo $p^n$.
+
+\paragraph{Ex. 4.4}
+Consider a prime $p$ of the form $4t + 1$. Show that $a$ is a
+primitive root modulo $p$ iff $-a$ is a primitive root modulo $p$.
+
+Assume that $a$ is a primitive root modulo $p$. Suppose $k$ is a
+smallest integer such that $(-a)^k \equiv 1 \pmod p$. We need to show
+that $k = p - 1$. Note that $(-a)^k \equiv (-1)^k a^k \equiv 1 \pmod
+p$, and since $a$ is a primitive root modulo $p$, if $k < p-1$, then
+also $a^k \not \equiv 1$, so we must have $(-1)^k \equiv -1 \pmod p$,
+that is, $k$ is odd. Since $p = 4t + 1$, $p-1$ is divisible by $4$,
+and so $2k < p-1$. But then $a^{2k} = (-1)^{2k}a^{2k} = (-a)^{2k} =
+((-a)^k)^2 \equiv 1^2 \pmod p$, and so $a$ is not a primitive root
+modulo $p$.
+
+\paragraph{Ex. 4.5}
+Consider a prime $p$ of the form $4t + 3$. Show that $a$ is a
+primitive root modulo $p$ iff $-a$ has order $(p - 1)/2$.
+
+Assume that $a$ is a primitive root modulo $p$. Let $k$ be the order
+of $-a$ modulo $p$. Now if $k < (p-1)/2$, reasoning as above, we
+conclude that $k$ must be odd. Also $2k < p-1$, and reasoning as
+above, $a$ is not a primitive root modulo $p$. Therefore, we get $k
+\geq (p-1)/2$.
+
+On the other hand, if $-a$ had order strictly larger than $(p-1)/2$,
+the only remaining option is $p-1$, that is, $-a$ is a primitive root
+modulo $p$. It means that $(-a)^{(p-1)/2} \not \equiv 1 \pmod p$. But
+$(p-1)/2 = 2t + 1$, so $(-1)^{2t+1} a^{2t+1} \not \equiv 1 \pmod p$,
+that is, $-a^{2t+1} \not \equiv 1 \pmod p$. But $(a^{2t+1})^2 =
+a^{p-1} \equiv 1 \pmod p$, and so since we are working in a field,
+$a^{2t+1}$ is congruent to $1$ or $-1$ modulo $p$. Since $a$ is
+primitive root modulo $p$, it must be congruent to $-1$ modulo $p$,
+but then $-a^{2t+1} \equiv 1 \pmod p$, which is a contradiction.
+
+In the other direction, assume tha $-a$ has order $(p - 1)/2$. It
+means that $(-a)^{2t+1} \equiv 1 \pmod p$, that is, $a^{2t+1} \equiv
+-1 \pmod p$. Order of $a$ modulo $p$ must divide $p-1$, and the
+congruence above show that it does not divide $2t+1 = (p-1)/2$, so it
+must be equal to $p-1$.
+
+\paragraph{Ex. 4.6}
+If $p = 2^{2^n} + 1$ is a Fermat prime, show that $3$ is a primitive root
+modulo $p$.
+
+If the order of $3$ is smaller than $p-1$, it must divide $(p-1)/2$,
+so it is enough to show that $3^{(p-1)/2} \equiv -1 \pmod p$, which is
+equivalent to saying that $3$ is not a square modulo $p$. Since $-1$
+is a square modulo $p$ (as can be seen by Wilson theorem for any $p =
+4t +1$), it follows that $-3$ is a non-square too, so it is enough to
+show that $-3$ cannot be square modulo $p$. Suppose it is, that is,
+$x^2 \equiv -3 \pmod p$ for some $x$. We can assume that $x$ is odd --
+if $x = 2y$ and $(2y)^2 \equiv -3 \pmod p$, then we just replace $2y$
+with $2y+p$, which is odd. Thus, $x = 2y+1$ for some $y$. Then if
+$(2y+1)^2 \equiv -3 \pmod p$, then $4y^2 + 4y + 4 \equiv 0 \pmod p$,
+but $4$ is invertible modulo $p$, so $y^2 + y + 1 \equiv 0 \pmod
+p$. It follows that $y^3 \equiv 1 \pmod p$, but since order of $y$
+must divide $p-1 = 2^n$, $y \equiv 1 \pmod p$. Thus $3^2 \equiv -3
+\pmod p$, that is, $12 \equiv 0 \pmod p$, and since $12 =
+2\cdot2\cdot3$, one of $2$ of $3$ is congruent to $0$ modulo $p$,
+which is only true if $p = 3$ (since $p$ is a Fermat prime). But $p
+\ne 3$ is a hidden assumption in th exercise, since in that case $3$
+clearly cannot be a primitive root modulo $3$.
+
+\paragraph{Ex. 4.7}
+Suppose that $p$ is a prime of the form $8t + 3$ and that $q = (p -
+1)/2$ is also a prime.  Show that $2$ is a primitive root modulo $p$.
+
+By Ex. 4.5, it is enough to show that $-2$ has order $(p-1)/2 =
+q$. Let $k$ be the order of $-2$. Since $k$ must divide $p-1$, and
+$p-1 = 2q$, so $k$ must be $2$, $q$, or $2q$. 
+
+If the order is $2$, then $(-2)^2 \equiv 1 \pmod p$, so $3 \equiv 0
+\pmod p$, and so $p = 3$, but then $q = (p-1)/q$ is not prime.
+
+If the order of $-2$ is $2q$, then $-2$ is a quadratic nonresidue. As
+$p = 8t+3$, $-1$ is also a quadratic nonresidue. Therefore $2$ is a
+quadratic residue modulo $p$, but this is only true for $p$ of the
+form $8t+1$, $8t+7$ (proved in the next chapter), which is a
+contradiction.
+
+\paragraph{Ex. 4.8}
+Let $p$ be an odd prime. Show that $a$ is a primitive root modulo $p$
+iff $a^{(p-1)/q} \not \equiv 1 \pmod p$ for all prime divisors $q$ of $p - 1$.
+
+One direction is clear: if $a^{(p-1)/q} \equiv 1 \pmod p$ for some
+$q$, then the order of $a$ is smaller than $p-1$.
+
+In the other direction, assume that the order of $a$ is smaller than
+$p-1$, say $a^k \equiv 1 \pmod p$ for some $k < p-1$. The order $k$
+must divide $p-1$, so write $p-1 = k t$ for some $t > 1$. Let $q$ be a
+prime divisor of $t$, so that $p-1 = k t' q$ for some $t'$. Then:
+
+\begin{equation}
+  a^{(p-1)/q} \equiv a^{kt'} \equiv (a^k)^{t'} \equiv 1^{t'} \equiv 1 \pmod p
+\end{equation}
+
+\paragraph{Ex. 4.9}
+Show that the product of all the primitive roots modulo $p$ is
+congruent to $(-1)^{\phi(p-1)}$ modulo $p$.
+
+Let $g$ be any primitive root modulo $p$, and $\{a_1, \ldots,
+a_{\phi(p-1)}\}$ be a list of all positive integers smaller than $p-1$
+and relatively prime to $p-1$. It follows that $g^{a_i}$ are all
+distinct primitive roots modulo $p$. Their product is precisely
+$g^{\sum a_i}$. We will therefore investigate $\sum a_i$.
+
+Note that if $k$ is relatively prime to $p-1$, so is $p-1-k$. $k \ne
+p-1-k$, unless $2k = p-1$, but the only way a number $k$ such that $2k
+= p-1$ is relatively prime to $p-1$ is when $k = 1$, $p-1 = 2$, and $p
+= 3$. We treat this case separately. Assume therefore that $p \ne 3$.
+We can divide numbers less than $p-1$ and relatively prime to $p-1$
+into $\phi(p-1)/2$ pairs, the sum of numbers in each pair is equal to
+$p-1$. Therefore, the sum of all numbers smaller than $p-1$ and
+relatively prime to $p-1$ is exactly $(p-1)\phi(p-1)/2$.
+
+Now, $g^{(p-1)\phi(p-1)/2} = (g^{(p-1)/2})^{\phi(p-1)}$. We have
+$g^{(p-1)/2} \equiv -1 \pmod p$, and so the desired congruence
+follows.
+
+For $p=3$, there's only one primitve root modulo $3$, which is $2 =
+\equiv -1 \pmod 3$. On the other hand $(-1)^{\phi(p-1)} =
+(-1)^{\phi(2)} = -1 \pmod 3$.
+
+\paragraph{Ex. 4.10}
+Show that the sum of all the primitive roots modulo $p$ is
+congruent to $\mu(p-1)$ modulo $p$.
+
+For any divisor $k$ of $p-1$, let $\psi(k)$ denote the sum of elements
+of order $k$ modulo $p$. We'll show that $\psi(k) = \mu(k)$, which
+implies the desired congruence.
+
+First note that $\psi$ is multiplicative modulo $p$.
+
+If $m, n$ are relatively prime, then $\Z/(mn) \simeq \Z/(m) \times
+\Z/(n)$ through isomorphism $a \mapsto (a \mod m, a \mod n)$ (Chinese
+remainder theorem).  From this isomorphism it follows that every $c$
+of the order $mn$ can be uniquely written as a product $c = ab$, with
+$a$ having order $m$, and $b$ order $n$.
+
+Let $a_1, \ldots, a_s$ be all elements of $U(\Z/p\Z)$ of order $m$,
+and $b_1, \ldots, b_t$ be all elements of $U(\Z/p\Z)$ of order
+$n$. Since $a_i$ and $b_j$ are all elements of a cyclic subgroup
+$C_{mn}$ of $U(\Z/p\Z)$ of elements of orders dividing $mn$, the above
+reasoning applies. Therefore:
+
+\begin{equation}
+  \psi(m)\psi(n) = (a_1 + \ldots + a_s)(b_1 + \ldots + b_t) = \sum_{1
+    \leq i \leq s} \sum_{1 \leq j \leq t} a_i b_j \equiv \psi(mn) \pmod p
+\end{equation}
+
+We now show that $\psi(p^n) \equiv \mu(p^n) \pmod p$, which along with
+multiplicativity gives us desired conclusion.
+
+We proceed by induction. For $n = 0$, the only element of order $p^0 =
+1$ is $1$, and its sum is $1 = \mu(1)$.
+
+For $n > 0$, the sum of all elements of order $p^n$ is the sum of all
+roots of $x^{p^n} \equiv 1 \pmod p$ minus the roots of $x^{p^{n-1}}
+\equiv 1 \pmod p$. Both of these sums are equal to $0$ except in case
+when $p^{n-1} = 1$, that is, $n = 1$. In that case, there is only one
+root, $1$, so $\psi(p) = -1$, and $\psi(p^n) = 0$ for $n>1$.
+
+
+\paragraph{Ex. 4.11}
+Prove that $1^k + 2^k + . . . + (p-1)^k \equiv 0 \pmod p$ if $p-1 \not
+| k$, and $\equiv -1 \pmod p$ if $p-1 | k$.
+
+If $g$ is a primitive root, then $g, g^2, \ldots, g^{p-1}$ is a
+permutation of $1, 2, \ldots, p-1$ modulo $p$. Therefore:
+
+\begin{equation}
+  1^k + 2^k + . . . + (p-1)^k \equiv g^k + (g^2)^k + \ldots +
+  (g^{p-1})^k \equiv g^k + (g^k)^2 + \ldots + (g^k)^{p-1} \pmod p
+\end{equation}
+
+If $p-1|k$, $x^k = 1$, and so $1 + 1^2 + \ldots + 1^{p-1} = p-1 \equiv
+-1 \pmod p$. On the other hand, if $p-1 \not | k$, then $g^k \ne
+1$. Write $x = g^k$. We want to show that $x + x^2 + \ldots + x^{p-1}
+\equiv 0 \pmod p$. We have:
+
+\begin{equation}
+x + x^2 + \ldots + x^{p-1} = x(1 + x + \ldots + x^{p-2}) \equiv
+x(x^{p-1} - 1)(x-1)^{-1} \equiv 0 \pmod p
+\end{equation}
+
+since $x^{p-1} - 1 \equiv 0 \pmod p$.
+
+\paragraph{Ex. 4.12}
+Use the existence of a primitive root to give another proof of Wilson's theorem
+$(p - 1)! \equiv -1  \pmod p$.
+
+If $g$ is a primitive root, then $g, g^2, \ldots, g^{p-1}$ is a
+permutation of $1, 2, \ldots, p-1$ modulo $p$. Therefore:
+
+\begin{equation}
+  (p-1)! \equiv g^1 \cdot g^{p-1} \equiv g^{1 + 2 + \ldots + p-1}
+  \equiv g^{p(p-1)/2} \equiv (g^p)^{(p-1)/2} \equiv g^{(p-1)/2} \equiv
+  -1 \pmod p
+\end{equation}
+
+
+\paragraph{Ex. 4.13}
+Let $G$ be a finite cyclic group and $g \in G$ a generator. Show that
+all the other generators are of the form $g^k$, where $(k, n) = 1$,
+$n$ being the order of $G$.
+
+If $(k, n) = d \ne 1$, then $n | \frac{kn}{d}$, and so $(g^k)^{n/d} = g^{kn/d}
+= 1$. Thus the order of $g^k$ divides $n/d$, which implies that it's
+smaller than $n$, and so $g^k$ cannot generate $G$.
+
+On the other hand, if $(k, n) = 1$, let $ak + bn = 1$. Then $g =
+g^{ak+bn} = g^{ak}g^{bn} = (g^k)^a (g^n)^b = (g^k)^a 1^b =
+(g^k)^a$. Thus $g^k$ generates $g$, and so generates the whole group.
+
+
+\paragraph{Ex. 4.14}
+Let $A$ be a finite abelian group and $a, b \in A$ elements of order
+$m$ and $n$, respectively.  If $(m, n) = 1$, prove that $ab$ has order
+$mn$.
+
+Let $M$ and $N$ be subgroups generated by $m$ and $n$
+respectively. Consider $a \in M \cap N$. Its order $d$ must divide the
+order of $M$ and the order of $N$, but since $(m, n) = 1$, we
+necessarily have that $d = 1$, and so $M \cap N = \{1\}$.
+
+Note that $(ab)^{mn} = (a^m)^n (b^n)^m = 1$, so the order of $ab$ must
+divide $mn$. Now, let $e$ be the order of $ab$, that is, $(ab)^e =
+1$. Then $a^e b^e = 1$. and so $a^e = b^{-e}$. It follows that $a^e
+\in B$, and $b^e \in A$, so $a^e = b^e = 1$. Thus, $m|e$ and $n|e$,
+and so $e$ is a multiple of both $m$ and $n$. Since $(m, n) = 1$,
+their smallest multiple is $mn$, and since we know that the order must
+divide $mn$, we get that the order is indeed $mn$.
+
+\paragraph{Ex. 4.15}
+Let $K$ be a field and $G \subset K^*$ a finite subgroup of the
+multiplicative group of $K$.  Extend the arguments used in the proof
+of Theorem 1 to show that $G$ is cyclic.
+
+Let $n = |G|$. If $K$ has characteristic $0$, consider an extension
+$\Q \subset \Q(G)$. We say this is an algebraic extension: indeed,
+every element of $G$ is a root of polynomial $x^{n} - 1$. Thus we can
+embed $\Q(G)$ in $\C$. In this embedding, $G$ is a subgroup of the
+group of roots of $x^{n} - 1$. But in $\C$, this group has exactly $n$
+elements, and is cyclic, generated by $e^{2i \pi / n}$. Thus, $G$ is a
+subgroup of a cyclic group, and so is cyclic itself.
+
+If $K$ has characteristic $p$, consider an extension
+$\mathbb{F}_p(G)$. Arguing as before, we say that this is an algebraic
+extension, but more importantly, it is also a finite extension, so
+$\mathbb{F}_p(G)$ is a finite field with $p^k$ elements, for some
+$k$. In this embedding, $G$ is a subgroup of the multiplicative group
+of $\mathbb{F}_{p^k}$. We now need to show that this group is
+cyclic.
+
+The polynomial $x^{p^k - 1} - 1$ has exactly $p^k - 1$ roots in
+$\mathbb{F}_{p^k}$. We now argue just like in proof of the Theorem 1
+-- if $d|p^k - 1$, then $x^d - 1 = 0$ has exactly $d$ solutions in
+$\F_{p^k}$. Indeed, just like in Proposition 4.1.2, we prove that we
+have:
+\begin{equation}
+  x^{p^k - 1} - 1 = (x^d - 1)g(x)
+\end{equation}
+for some (easy to calculate) polynomial $g(x)$. If $x^d - 1$ had less
+than $d$ roots, then $x^{p^k - 1} - 1$ necessarily would have less
+than $p^k - 1$ roots as well, but it contradicts the fact that all
+nonzero elements of $\F_{p^k}$ are roots of that polynomial, and there
+are $p^k - 1$ of them.
+
+So, we continue just like in the proof of Theorem 1: we let $\psi(d)$
+equal number of elements of $U(\F_{p^k})$ of order $d$, using
+reasoning above we conclude that $d = \sum_{c|d} \psi{c}$, we use
+Moebius inversion to conclude that $\psi(d) = \phi(d)$, and note that
+$\phi(p^k - 1) > 1$, so there exists an element of order $p^k - 1$.
+
+\paragraph{Ex. 4.16}
+Calculate the solutions to $x^3 \equiv 1 \pmod {19}$ and $x^4 \equiv 1
+\pmod {17}$.
+
+Note that $x^3 - 1 = (x-1)(x^2 + x + 1)$. We complete the square in
+$x^2 + x + 1$: the discriminant is $1 - 4 = -3 \equiv 16 \pmod {19}$,
+and so its square root is $4 \pmod {19}$. The inverse of $2$ modulo
+$19$ is $10$, as $2 \cdot 10 = 20 \equiv 1 \pmod {19}$. Thus:
+\begin{equation}
+x^2 + x + 1 = (x - 2^{-1}\cdot(-1 - 4))(x-2^{-1}\cdot(-1+4)) = (x-10 \cdot
+14)(x-10 \cdot 3) = (x - 7)(x - 11)
+\end{equation}
+
+We deal with the second equation in a similar manner: $x^4 - 1 = (x^2
+- 1)(x^2 + 1) = (x-1)(x+1)(x^2+1)$, so it remains to find square roots
+of $-1 \equiv 16 \pmod {17}$, but these are just $4$ and $-4 \equiv 13
+\pmod {17}$.
+
+\paragraph{Ex. 4.17}
+Use the fact that $2$ is a primitive root modulo $29$ to find the
+seven solutions to $x^7 \equiv 1 \pmod {29}$.
+
+We can write $x \equiv 2^k \pmod {29}$ for some $k \in \{0, 1, \ldots,
+27\}$. For $(2^k)^7 \equiv 1 \pmod {29}$ to be true, $7k$ must be a
+multiple of $28$. This means that $k \in \{0, 4, 8, 12, 16, 20, 24\}$,
+and corresponding values of $x$ are $1, 16, 24, 7, 25, 23, 20 \pmod
+{29}$.
+
+\paragraph{Ex. 4.18}
+Solve the congruence $1 + x + \ldots + x^6 \equiv 0 \pmod {29}$.
+
+Note that $(1-x)(1 + x + \ldots + x^6) = 1 - x^7$. From the previous
+exercise we can find the roots to the right hand side, and except of
+$x = 1$, the remainding $6$ solutions must be the solutions to $1 + x
++ \ldots + x^6 \pmod {29}$.
+
+\paragraph{Ex. 4.19}
+Determine the numbers $a$ such that $x^3 \equiv a \pmod {p}$ is
+solvable for $p = 7, 11, 13$.
+
+This tedious exercise can be easily solved by a brute-force search, so
+I'll skip it.
+
+\paragraph{Ex. 4.20}
+Let $p$ be a prime, and $d$ a divisor of $p - 1$. Show that $d$th
+powers form a subgroup of $U(\F_p)$ of order $(p-1)/d$. Calculate this
+subgroup for $p = 11, d = 5$, for $p = 17, d = 4$, and for $p = 19, d
+= 6$.
+
+Let $a = x^d, b = y^d$. Then obviously $ab = (xy)^d$, so $ab$ is $d$th
+power. Similarly, $a^{-1} = (x^{-1})^d$, so $a^{-1}$ is also $d$th
+power. Thus we see that $d$th powers form a subgroup.
+
+If $x = y^d$ for some $y$, then $x^{(p-1)/d} - 1 = (y^d)^{(p-1)/d} -1
+= y^{p-1} - 1 = 1 - 1 = 0$, so there are at most $(p-1)/d$ $d$th
+powers. Consider a function $f: U(\F_p) \to U(\F_p), f(a) = a^d$. The
+image has at most $(p-1)/d$ elements. Each element $b$ in the image
+has at most $d$ elements in the preimage, as they all must be
+solutions to $x^d = b$. If the image had strictly less than $(p-1)/d$
+elements, the preimage of the image, which is $U(\F_p)$, would need to
+have strictly less than $d \cdot (p-1)/d = p-1$ elements, which is a
+contradiction.
+
+For $p = 11$, the subgroup of 5th powers have only $(11-10)/5 = 2$
+elements. One of them is obviously 1, the other is e.g. $2^5 = 32
+\equiv -1 = 10 \pmod {11}$.
+
+For $p = 17$, the group of $4$th elements has $(17-1)/4 = 4$
+elements. These are $1$, $2^4 = 16 \equiv -1 \pmod {17}$, $3^4 = 81
+\equiv 13 \pmod {17}$, and $-13 \equiv 4 \pmod {17}$.
+
+For $p = 19$, the subgroup of $6$th power has $3$ elements, which are
+$1$, $2^6 = 64 \equiv 7 \pmod {19}$, and $7^2 = 49 \equiv 11 \pmod
+{19}$.
+
+\paragraph{Ex. 4.21}
+If $g$ is a primitive root modulo $p$, and $d|p-1$, show that
+$g^{(p-1)/d}$ has order $d$. Show also that $a$ is a $d$th power iff
+$a \equiv g^{kd} \pmod p$ for some $k$. Do Exercises 4.16-4.20 making
+use those observations.
+
+These observations are trivial, and we already used them above.
+
+\paragraph{Ex. 4.22}
+If $a$ has order $3$ modulo $p$, show that $1+a$ has order $6$.
+
+We need to show that $(1+a)^k$ is not equal to $1$ for $k < 6$, and
+that $(1+a)^6 = 1$.
+
+Note that as $a$ has order $3$ modulo $p$, we have:
+\begin{equation}
+  0 = a^3 - 1 = (a-1)(1+a+a^2)
+\end{equation}
+As $a$ has order $3$, $a \ne 1$, so $1+a+a^2 = 0$.
+
+Now, let us handle all cases separately.
+
+$k=1$: Since $a$ has order 3, $a \ne 0$, and so $(1+a)^1 \ne 1$.
+
+$k=2$: We have $(1+a)^2 = 1 + 2a + a^2 = 1 + a + a^2 + a = a$. We know
+that $a \ne 1$.
+
+$k=3$: We have $(1+a)^3 = 1 + 3a + 3a^2 + a^3 = 3(1+a+a^2)-1 = -1$. We
+have $-1 \ne 1$, otherwise $2 = 0$, and $a$ cannot have order $3$.
+
+$k=4$: We have $(1+a)^4 = 1 + 4a + 6a^2 + 4a^3 + a^4 = 1 + 4a + 6a^2 +
+4 + a = 5(1 + a + a^2) + a^2 = a^2$, which is not equal to $1$, as $a$
+would have been order $2$ otherwise.
+
+$k=5$: We have $(1+a)^5 = 1 + 5a + 10a^2 + 10a^3 + 5a^4 + a^5 = 1 + 5a
++ 10a^2 + 10 + 5a + a^2 = 11 + 10a + 11a^2 = 11(1+a+a^2) - a = -a$,
+and $-a \ne 1$, as otherwise $a =-1$, which doesn't have order $3$.
+
+$k=6$: We have $(1+a)^6 = 1 + 6a + 15a^2 + 20a^3 + 15a^4 + 6a^5 + a^6
+= 1 + 6a + 15a^2 + 20 + 15a + 6a^2 + 1 = 22 + 21a + 21a^2 = 1 +
+21(1+a+a^2) = 1$.
+
+\paragraph{Ex. 4.23}
+Show that $x^2 \equiv -1 \pmod p$ has a solution iff $p \equiv 1 \pmod
+4$, and that $x^4 \equiv -1 \pmod p$ has a solution iff $p \equiv 1
+\pmod 8$.
+
+For the first congruence, we use Proposition 4.2.1 to conclude that
+existence of 2nd power residue of $-1$ modulo prime $p$ is equivalent
+to $(-1)^{(p-1)/2} \equiv 1 \pmod p$, which in turn is equivalent to
+$(p-1)/2$ being even, that is, $p \equiv 1 \pmod 4$.
+
+We do the same for the second congruence: $-1$ is a 4th power residue
+modulo $p$ if $(-1)^{(p-1)/d} \equiv 1 \pmod p$, where $d = (4,
+p-1)$. Note that if $a$ is 4th power residue, then it is 2nd power
+reside too, so necessarily $p \equiv 1 \pmod 4$, and so $d =
+4$. Therefore, we are asking when $(-1)^{(p-1)/4} \equiv 1 \pmod p$,
+which in turn is equivalent to $(p-1)/4$ being even, which happens
+whenever $p \equiv 1 \pmod 8$.
+
+\paragraph{Ex. 4.24}
+Show that $a x^m + b y^n \equiv c \pmod p$ has the same number of
+solutions as $a x^{m'} + b y^{n'} \equiv c \pmod p$, where $m' =
+(m,p-1)$ and $n' = (n, p-1)$.
+
+%% Every solution to the first equation yields the solution to the
+%% second: indeed, $m = m' u$, $n = n' v$, and we can write $a x^m + b
+%% y^n = a (x^u)^{m'} + b (y^v)^{n'}$. 
+
+%% Now consider a solution $(x, y)$ to $a x^{m'} + b y^{n'} \equiv c
+%% \pmod p$. Let $g$ be a primitive root modulo $p$, and write $x = g^e$,
+%% $y = g^f$.
+
+\section{Chapter 5}
+
+\paragraph{Ex. 5.1}
+Use Gauss' lemma to determine $\left(\frac{5}{7}\right),
+\left(\frac{3}{11}\right), \left(\frac{6}{13}\right),
+\left(\frac{-1}{p}\right)$.
+
+$\left(\frac{5}{7}\right)$: $(7-1)/2 = 3$, and so least residues of $1
+\cdot 5, 2 \cdot 5, 3 \cdot 5$ are $-2, 3, 1$ respectively, so $\mu =
+1$ and $\left(\frac{5}{7}\right) = (-1)^\mu = -1$.
+
+$\left(\frac{3}{11}\right)$: $(11-1)/2 = 5$, and so least residues of
+$1 \cdot 3, 2 \cdot 3, 3 \cdot 3, 4 \cdot 3, 5 \cdot 3$ are $3, -1,
+-2, 1, 4$ respectively, so $\mu = 2$ and $\left(\frac{3}{11}\right) =
+(-1)^\mu = 1$.
+
+$\left(\frac{6}{13}\right)$: $(13-1)/2 = 6$, the least residues of
+first $6$ multiples of $6$ are $1, -1, 6, -2, 4, -3$, $\mu = 3$,
+$\left(\frac{6}{13}\right) = (-1)^\mu = -1$.
+
+$\left(\frac{-1}{p}\right)$: the least residues of the first $(p-1)/2$
+multiples of $-1$ are all negative, so $\left(\frac{-1}{p}\right) =
+(-1)^\mu = (-1)^{(p-1)/2}$.
+
+\paragraph{Ex. 5.2}
+Show that the number of solutions to $x^2 \equiv a \pmod p$ is equal
+to $1 + (a/p)$.
+
+If $x$ is a solution to the given congruence, $-x$ is also a solution,
+and it's a different solution unless $x \equiv 0$ or $x \equiv -x
+\pmod p$, but $p$ is odd, so it cannot happen. Since the equation is
+of degree 2 over a field, there cannot be any more solutions.
+
+If $a \equiv 0 \pmod p$, there's only one solution, $x \equiv 0 \pmod
+p$, but also $1+(0/p) = 1+0 = 1$.
+ 
+Otherwise, there are either 0 or 2 solutions. There are 0 solutions
+whenever $a$ is not a quadratic residue, that is, $(a/p) = -1$, and $1
++ (a/p) = 1 + (-1) = 0$ in that case. In the other case, $(a/p) = 1$,
+and so $1 + (a/p) = 1 + 1 = 2$. In all cases the expression $1 +
+(a/p)$ equals the number of solutions.
+
+\paragraph{Ex. 5.3}
+Suppose $p \not | \; a$. Show that the number of solutions to $a x^2 +
+bx + c \equiv 0 \pmod p$ is equal to $1 + (b^ - 4ac/p)$.
+
+High school algebra gives tells us that the solutions correspond to
+quadratic residues of $\Delta = b^2 - 4ac$, and so we can just use the
+result from the previous exercise.
+
+\paragraph{Ex. 5.4}
+Prove that $\sum_{a=1}^{p-1} (a/p) = 0$.
+
+This is clear: there are exactly as many quadratic residues as there
+are nonresidues, and for residues $(a/p) = 1$, and for nonresidues it
+equals $-1$.
+
+\paragraph{Ex. 5.5}
+Prove that $\sum_{x=1}^{p-1} ((ax + b)/p) = 0$ provided that $p \not | \; a$.
+
+If $p \not | \; a$, then $\{a \cdot 1, a\cdot 2, \ldots, a \cdot (p-1)\}$ is a
+complete set of residues modulo $p$, and thus also is $\{a \cdot 1+b, a\cdot 2
++b, \ldots, a \cdot (p-1) +b\}$, so we just use the result of the
+previous exercise.
+
+\paragraph{Ex. 5.6}
+Show that the number of solutions to $x^2 - y^2 \equiv a \pmod p$ is given by:
+
+\begin{equation}
+  \sum_{y=0}^{p-1}(1+((y^2 + a)/p))
+\end{equation}
+
+This is pretty clear: the equation is equivalent to $x^2 \equiv y^2 +
+a \pmod p$, which, if we hold $y$ fixed, by Ex. 5.2 has $(1+((y^2 +
+a)/p))$, so if we let $y$ vary from $1$ to $p-1$ and sum the number of
+solutions for each $y$, we get the result.
+
+\paragraph{Ex. 5.7}
+By calculating directly show that the number of solutions to $x^2 -
+y^2 \equiv a \pmod p$ is $p-1$ if $p \not | \; a$, and $2p - 1$ if $p
+| a$.
+
+We change variables $u = x+y$, $v = x-y$. The equation then takes form
+$uv \equiv a \pmod p$.
+
+If $p | a$, that is, $a \equiv 0 \pmod p$, then there are exactly $2p -
+1$ solutions corresponding to $u = 0$ and any $v$, to $v = 0$ and any
+$u$. Each of these gives us $p$ solutions, but we get $u = v = 0$ for
+both, so there are $2p - 1$ solutions overall. All of these are
+obtainable from original variables: we obtain $u = 0$ and any $v$ by
+letting $x = -y = v \cdot 2^{-1}$, and $v = 0$ and any $u$ by letting
+$x = y = u \cdot 2^{-1}$.
+
+Otherwise, if $p \not | \; a$, as we fix $v$ and vary $u$ from $1$ to
+$p-1$, the values of $uv$ are all nonzero residues mod $p$. Exactly
+one of them is congruent to $a$. We can fix $v$ to $p-1$ different
+values, and so we get $p-1$ different solutions. Note also that our
+variable substitution is bijective.
+
+\paragraph{Ex. 5.8}
+Combining the results of Ex. 5.6 and 5.7 show that:
+
+\begin{equation}
+  \sum_{y=0}^{p-1} \left(\frac{y^2 +a}{p}\right) =
+  \begin{cases}
+    -1 \quad \textrm{if}\, p\not | \; a \\
+    p-1 \quad \textrm{if}\, p | a
+  \end{cases}
+\end{equation}
+
+Immediate.
+
+\paragraph{Ex. 5.9}
+Prove that $1^2 3^2 \cdots (p-2)^2 \equiv (-1)^{(p-1)/2} \pmod p$ using Wilson's theorem.
+
+Note that $a^2 \equiv a(a-p) \equiv -a(p-a) \pmod p$, and so:
+\begin{equation}
+  1^2 3^2 \cdots (p-2)^2 \equiv (-1)^{(p-1)/2}
+  1(p-1)3(p-3)\cdots(p-2)2 \equiv (-1)^{(p-1)/2} (-1) \equiv
+  (-1)^{(p+1)/2} \pmod p
+\end{equation}
+
+\paragraph{Ex. 5.10}
+Let $r_1, r_2, \ldots, r_{(p-1)/2}$ be the quadratic residues between
+$1$ and $p$. Show that their product is congruent to $1$ modulo if $p
+\equiv 3 \pmod 4$, and to $-1$ if $p \equiv 1 \pmod 4$.
+
+This is the same problem as Ex 5.9 -- $1^2, 3^2, \ldots, (p-2)^2$ are
+all quadratic residues, as each quadratic residue is a square of two
+different residues, namely $a$ and $p-a$, at least one of which occurs
+on the list above.
+
+\paragraph{Ex. 5.11}
+Suppose that $p \equiv 3 \pmod 4$, and that $q = 2p+1$ is also
+prime. Prove that $2^p -1$ is not prime.
+
+We'll show that $2^p \equiv 1 \pmod q$. Note that $p = (q-1)/2$, and
+so $2^p = 2^{(q-1)/2} \equiv (2/q) \pmod q$. Consider then $(2/q)$. It
+is equal to $(-1)^{(q^2 - 1)/8}$. The exponent is equal to $(4p^2 +
+4p)/8 = (p^2 + p)/2$. Since $p \equiv 3 \pmod 4$, $p^2 + p \equiv 0
+\pmod 4$, and so $(p^2 + p)/2$ is even. Therefore $(2/q) = 1$, and so
+$2^p \equiv (2/q) = 1 \pmod q$.
+
+\paragraph{Ex. 5.12}
+Let $f(x) \in \Z[x]$. We say that a prime $p$ divides $f(x)$ if
+there's an integer $n$ such that $p|f(n)$. Describe the prime divisors
+of $x^2 + 1$ and $x^2 -2$.
+
+We are asking for which $p$, $x^2 + 1 \equiv 0 \pmod p$, and for which
+$p$, $x^2 - 2 \equiv 0 \pmod p$. This is equivalent to asking for
+which $p$, $-1$ and $2$ are quadratic residue. Quadratic reciprocity
+answers these questions in a satisfactory way.
+
+\paragraph{Ex. 5.13}
+Show that any prime divisor of $x^4 - x^2 + 1$ is congruent to $1$
+modulo $12$.
+
+Suppose that $x$ is such that $x^4 - x^2 + 1 \equiv 0 \pmod p$. We use
+Ex. 5.3 to conclude that $1^2 - 4 \cdot 1 \cdot 1 = - 3$ is a
+quadratic residue modulo $p$, that is, $(-3/p) = 1$. We have:
+
+\begin{equation}
+  \label{eq:3p-legendre}
+  1 = \left(\frac{-3}{p}\right) =
+  \left(\frac{-1}{p}\right)\left(\frac{3}{p}\right) = (-1)^{(p-1)/2}
+  \left(\frac{3}{p}\right)
+\end{equation}
+
+On the other hand, the quadratic reciprocity tells us that:
+\begin{equation}
+  \label{eq:3p-quadr-recipr}
+  \left(\frac{3}{p}\right) \left(\frac{p}{3}\right) = (-1)^{(3-1)/2 \cdot (p-1)/2} = (-1)^{(p-1)/2}
+\end{equation}
+
+Combining (\ref{eq:3p-legendre}) with (\ref{eq:3p-quadr-recipr}), we get:
+
+\begin{equation}
+  \left(\frac{p}{3}\right) = 1
+\end{equation}
+
+This implies that $p \equiv 1 \pmod 3$. It remains to prove that $p
+\equiv 1 \pmod 4$, which is equivalent to showing that $-1$ is a
+quadratic residue modulo $p$.
+
+Write the original equation in the form $x^2(x^2 - 1) \equiv -1 \pmod
+p$. As $x^2$ is obviously a quadratic residue, if we show that $x^2 -
+1$ is also a quadratic residue, then $-1$ will also be a quadratic
+residue, as a product of two residues.
+
+But again we rewrite the original equation as $x^4 \equiv x^2 - 1
+\pmod p$, from which it is clear that $x^2 - 1$ is a quadratic
+(even biquadratic) residue.
+
+\paragraph{Ex. 5.14}
+Use the fact that $U(\Z/p\Z)$ is cyclic to give a direct proof that
+$(-3/p) = 1$ when $p \equiv 1 \pmod 3$.
+
+Since $p \equiv 1 \pmod 3$, $3$ divides $p-1$, and so by Cauchy
+theorem, there's an element $\rho \in U(\Z/p\Z)$ of order $3$. We'll
+show that $(2 \rho + 1)^2 \equiv -3 \pmod p$.
+
+Since $\rho^3 \equiv 1$, $1 + \rho + \rho^2 \equiv 0$. Then $4 \rho^2
++ 4 \rho + 4 \equiv 0$, so $(2 \rho + 1)^2 \equiv -3$.
+
+\paragraph{Ex. 5.15}
+If $p \equiv 1 \pmod 5$, show directly that $(5/p) = 1$ by the method
+of Ex. 5.14.
+
+Since $p \equiv 1 \pmod 5$, $5$ divides $p-1$, and so by Cauchy
+theorem, there's an element $\rho \in U(\Z/p\Z)$ of order $5$.
+
+Since $\rho$ has order $5$, $1 + \rho + \rho^2 + \rho^3 + \rho^4 =
+0$. Then, simple calculation shows that $(\rho + \rho^4)^2 + (\rho +
+\rho^4) - 1 = 0$. This means that $x^2 + x - 1 \equiv 0 \pmod p$ is
+solvable, which by Ex. 4.3 is equivalent to $1^2 - 4\cdot1\cdot(-1) =
+5$ being a quadratic residue.
+
+\paragraph{Ex. 5.16}
+Using quadratic reciprocity find the primes for which $7$ is quadratic
+residue. Do the same for $15$.
+
+Quadratic reciprocity tells us that:
+
+\begin{equation}
+  \left(\frac{p}{7}\right)\left(\frac{7}{p}\right) = (-1)^{(p-1)/2
+    \cdot (7-1)/2} = (-1)^{3(p-1)/2} = (-1)^{(p-1)/2}
+\end{equation}
+
+Let us now consider $(p/7)$. The quadratic residues modulo $7$ are $1,
+2, 4$. Thus, $(7/p) = 1$ whenever $p$ is congruent to either of $1, 2,
+4$ modulo $7$ and $1$ modulo $4$, or to $3, 5, 6$ modulo $7$ and $3$
+modulo $4$. We can sum up these conditions to: $p$ must be congruent
+to either of $1, 2, 4, 9, 15, 18$ modulo $28$.
+
+The process for $15$ is mostly the same, save for a minor details that
+$15$ is actually not a prime. However, we note that $(15/p) =
+(3/p)(5/p)$, and then we proceed to determine the quadratic character
+of $3$ and $5$.
+
+\paragraph{Ex. 5.17}
+Supply the details to the proof of Proposition 5.2.1 and to the corollary to the lemma
+following it.
+
+This is too trivial to bother writing it down.
+
+\paragraph{Ex. 5.18}
+Let $D$ be a square-free integer that is also odd and positive. Show
+that there's an integer $b$ prime to $D$ such that $(b/D) = -1$.
+
+Let $D = p_1 \cdots p_k$. By definition:
+\begin{equation}
+  \label{eq:gener-legendre}
+  \left(\frac{b}{D}\right) = \left(\frac{b}{p_1}\right) \cdots \left(\frac{b}{p_k}\right)
+\end{equation}
+
+Let $b_1$ be any quadratic non-residue modulo $p_1$, and $b_i$ for $i
+> 1$ be any quadratic residues modulo $p_i$. By Chinese remainder
+theorem, there exists $b$ such that $b \equiv b_i \pmod {p_i}$, and by
+(\ref{eq:gener-legendre}), it is clear that $(b/D) = -1$.
+
+\paragraph{Ex. 5.19}
+Let $D$ be as in Exercise 18. Show that $\sum (a/D) = 0$, where the
+sum is over a reduced residue system modulo $D$. Conclude that exactly
+one half of the elements in $U(\Z/D\Z)$ satisfy $(a/D) = 1$.
+
+If $D$ is prime itself, then the proposition follows from the
+corresponding property of the regular Legendre symbol (there are
+exactly as many residues as there are nonresidues). Therefore, let $D
+= p_1 \ldots p_k$, $p_i$ be all different, and $k > 1$. Let $D' = p_2
+\ldots p_k$, so that $D = p_1 D'$. Then:
+
+\begin{equation}
+  \sum_{\mod D} \left(\frac{a}{D}\right) = \sum_{\mod D}
+  \left(\frac{a}{p_1}\right) \left(\frac{a}{D'}\right)
+\end{equation}
+ 
+where $\sum_{\mod D}$ denotes sum over reduced residues modulo $D$.
+
+By Chinese remainder theorem, each reduced residue $a$ modulo $D$
+corresponds to a pair of (residue modulo $p_1$, residue modulo $D'$)
+through coordinate-wise reduction. All residues modulo $D$ arise this
+way. Thus, we can write:
+
+\begin{equation}
+  \sum_{\mod D} \left(\frac{a}{p_1}\right) \left(\frac{a}{D'}\right) =
+  \left(\sum_{\mod p_1} \left(\frac{a}{p_1}\right)\right)
+  \left(\sum_{\mod D'}\left(\frac{a}{D'}\right)\right)
+\end{equation}
+
+But now again $\sum_{\mod p_1} \left(\frac{a}{p_1}\right) = 0$ by
+properties of regular Legendre symbol, so the whole sum must be $0$.
+
+Since $\sum_{\mod D} \left(\frac{a}{D}\right) = 0$, and each summand
+is either $1$ or $-1$, there must be exactly as many $1$s as there are
+$-1$s.
+
+\paragraph{Ex. 5.20}
+Let $a_1, a_2, \ldots, a_{\phi(D)/2}$ be integers between $1$ and $D$
+such that $(a_i, D) = 1$ and $(a_i/D) = 1$. Prove that $D$ is a
+quadratic residue modulo a prime $p \not | \; D$, $p \equiv 1 \pmod 4$
+iff $p \equiv a_i \pmod D$ for some $i$.
+
+We are interested in calculating $(D/p)$. Generalization of quadratic
+reciprocity to Jacobi symbol gives us the following relation:
+
+\begin{equation}
+  \left(\frac{p}{D}\right)\left(\frac{D}{p}\right) = (-1)^{\frac{p-1}{2}\frac{D-1}{2}} = 1
+\end{equation}
+
+Thus $(D/p) = (p/D)$. But $(p/D) = 1$ exactly if $p \equiv a_i \pmod D$ for some $i$.
+
+\paragraph{Ex. 5.21}
+Apply the method of Ex. 5.19 and 5.20 to find those primes for which
+$21$ is a quadratic residue.
+
+Let $D = 21 = 3 \cdot 7$, $\phi(21) = (3-1)(7-1) = 2 \cdot 6 =
+12$. Thus there are $\phi(21)/2 = 6$ residues $a$ modulo $21$ such
+that $(a/21) = 1$. These are either residues, which are quadratic
+residues of both $3$ and $7$, or residues which are quadratic
+nonresidues of both $3$ and $7$. There's a single quadratic residue
+mod $3$, which is $1$, and a single nonresidue, which is $2$. There
+are $3$ quadratic residues mod $7$, which are $1$, $2$, and $4$, and
+$3$ nonresidues, which are $3$, $5$ and $6$. Thus, if $a$ is such that
+$(a/21) = 1$, then these are the possibilities for values of $(a \mod
+3, a \mod 7)$: $(1, 1), (1, 2), (1, 4), (2, 3), (2, 5), (2,6)$. We can
+recover residues mod $21$ from these pairs using Chinese remainder
+theorem. Then, the solution to exercise amounts to applying the previous exercise.
+
+\paragraph{Ex. 5.22}
+Use the Jacobi symbol to determine $(113/997)$, $(215/761)$,
+$(514/1093)$, and $(401/757)$.
+
+We'll do only the first one, $(113/997)$. We have:
+
+\begin{equation}
+  \left(\frac{113}{997}\right)\left(\frac{997}{113}\right) =
+  (-1)^{\frac{113-1}{2}\frac{997-1}{2}} = (-1)^{56 \cdot 498} = 1
+\end{equation}
+
+Thus $(113/997) = (997/113) = (93/113)$. We apply reciprocity again:
+
+\begin{equation}
+  \left(\frac{93}{113}\right)\left(\frac{113}{93}\right) =
+  (-1)^{\frac{93-1}{2}\frac{113-1}{2}} = (-1)^{46 \cdot 56} = 1
+\end{equation}
+
+Thus $(93/113) = (113/93) = (20/93) = (4/93)\cdot(5/93) = (5/93)$, as
+$4$ is always a quadratic residue. Thus we have:
+
+\begin{equation}
+  \left(\frac{5}{93}\right)\left(\frac{93}{5}\right) =
+  (-1)^{\frac{93-1}{2}\frac{5-1}{2}} = (-1)^{46 \cdot 2} = 1
+\end{equation}
+
+And so $(5/93) = (93/5) = (3/5) = -1$, as $1, 4$ are the only
+quadratic residues modulo $5$.
+
+\paragraph{Ex. 5.23}
+Suppose that $p \equiv 1 \pmod 4$. Show that there exist integers $s$
+and $t$ such that $pt = 1 + s^2$.  Conclude that $p$ is not a prime in
+$\Z[i]$. Remember that $\Z[i]$ has unique factorization.
+
+Since $p \equiv 1 \pmod 4$, $(-1)^{(p-1)/2} = 1$, and so $-1$ is a
+quadratic residue. Thus there exists $s \leq p-1$ such that $s^2
+\equiv -1 \pmod p$, which is the same as saying that $p$ divides $s^2
++ 1$, that is, $pt = s^2 + 1$. 
+
+In $\Z[i]$ we can factor $pt = s^2 + 1$ as $pt = (s-i)(s+i)$. If $p$
+was a prime, it would have to divide one of $s+i, s-i$, and so $p^2 =
+||p|| \leq \max(||s-i||, ||s+i||) = \max(s^2 + 1, s^2 + 1) = s^2 + 1
+\leq p^2 - 2p + 1 + 1$, and so $2p \leq 2$, which is a contradiction.
+
+
 
 \end{document}
+
