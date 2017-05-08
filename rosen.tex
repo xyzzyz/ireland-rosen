@@ -2170,11 +2170,12 @@ congruent to a fourth power. Using the identity $x^4 + 4 = ((x + 1)^2
 + 1)((x - 1)^2 + 1)$ show that $-4$ is a biquadratic residue modulo $p$
 iff $p \equiv 1 \pmod 4$.
 
-Allow me to not use the given identity, and instead argue that since
-$4$ is always a quadratic residue as a square of an integer, $-4$ is
-then a quadratic residue whenever $-1$ is, but as we know, this
-happens whenever $p \equiv 1 \pmod 4$. In fact, using the identity
-given as a hint results in the same argument.
+In one direction it's trivial: if $-1$ is a biquadratic residue, it
+necessarily is also a quadratic residue, and so $p \equiv 1 \pmod
+4$. In the other direction, assume that $p \equiv 1 \pmod 4$, so that
+$-1$ is a quadratic residue. Thus there's an $x$ such that $(x+1)^2
+\equiv -1 \pmod p$, and so $x^2 + 4 \equiv ((x+1)^2 + 1)((x-1)^2 + 1)
+\equiv 0 \pmod p$, that is, $-4$ is a biquadratic residue.
 
 \paragraph{Ex. 5.26}
 This exercise and Ex. 5.27 and 5.28 give Dirichlet's beautiful proof
