@@ -2144,6 +2144,55 @@ was a prime, it would have to divide one of $s+i, s-i$, and so $p^2 =
 ||p|| \leq \max(||s-i||, ||s+i||) = \max(s^2 + 1, s^2 + 1) = s^2 + 1
 \leq p^2 - 2p + 1 + 1$, and so $2p \leq 2$, which is a contradiction.
 
+\paragraph{Ex. 5.24}
+If $p \equiv 1 \pmod 4$, show that $p$ is a sum of two squares,
+i.e. $p = a^2 + b^2$ with $a, b \in \Z$.
+
+Since $p$ is a nonprime in $\Z[i]$, we can write $p = \alpha \beta$
+for some nonunit $\alpha, \beta \in \Z[i]$. We then have:
+
+\begin{equation}
+  p^2 = ||p|| = ||\alpha \beta|| = ||\alpha|||\cdot||\beta|| = (x^2 + y^2)(c^2 + d^2)
+\end{equation}
+
+Since $p$ is prime, both sides of above equality are integers, and
+neither $\alpha$ nor $\beta$ are units, we must have $p = x^2 + y^2 =
+c^2 + d^2$. Now it only remains to show that neither of, say, $x$ or
+$y$, is $0$. If $y = 0$, then $\alpha \in \Z$, and so $\beta \in \Z$,
+cause otherwise if $\beta \not \in \Z$, $p = \alpha \beta \not \in
+\Z$, which is a contradiction. But if $\alpha, \beta \in \Z$, they
+would give a nontrivial factorization of $p$ in $\Z$, which cannot
+exist. We deal with the case of $x = 0$ by similar argument.
+
+\paragraph{Ex. 5.25}
+An integer is called a biquadratic residue modulo $p$ if it is
+congruent to a fourth power. Using the identity $x^4 + 4 = ((x + 1)^2
++ 1)((x - 1)^2 + 1)$ show that $-4$ is a biquadratic residue modulo $p$
+iff $p \equiv 1 \pmod 4$.
+
+Allow me to not use the given identity, and instead argue that since
+$4$ is always a quadratic residue as a square of an integer, $-4$ is
+then a quadratic residue whenever $-1$ is, but as we know, this
+happens whenever $p \equiv 1 \pmod 4$. In fact, using the identity
+given as a hint results in the same argument.
+
+\paragraph{Ex. 5.26}
+This exercise and Ex. 5.27 and 5.28 give Dirichlet's beautiful proof
+that $2$ is a biquadratic residue modulo $p$ iff $p$ can be written in
+the form $A^2 + 64B^2$ , where $A, B \in \Z$. Suppose that $p \equiv 1
+\pmod 4$. Then $p = a^2 + b^2$ by Ex. 5.24. Take $a$ to be odd.  Prove
+the following statements:
+
+\begin{enumerate}[a)]
+\item $(a/p) = 1$.
+\item $((a + b)/p) = (-1)^{((a+b)^2 -1)/8}$.
+\item $(a + b)^2 \equiv 2ab \pmod p$
+\item $(a + b)^{(p- 1)/2} \equiv (2ab)^{(p- 1)/4} \pmod p$.
+\end{enumerate}
+
+We'll begin with proving $(a/p) = 1$. Note that since $p = a^2 + b^2$,
+we have $a^2 + b^2 \equiv 0 \pmod p$, and so $-a^2 \equiv b^2 \pmod p$. 
+
 
 
 \end{document}
