@@ -2191,10 +2191,152 @@ the following statements:
 \item $(a + b)^{(p- 1)/2} \equiv (2ab)^{(p- 1)/4} \pmod p$.
 \end{enumerate}
 
-We'll begin with proving $(a/p) = 1$. Note that since $p = a^2 + b^2$,
-we have $a^2 + b^2 \equiv 0 \pmod p$, and so $-a^2 \equiv b^2 \pmod p$. 
+We'll begin with proving $(a/p) = 1$. Since $a$ is odd, we can use
+quadratic reciprocity theorem with Jacobi symbols:
 
+\begin{equation}
+  \left(\frac{a}{p}\right)\left(\frac{p}{a}\right) = (-1)^{\frac{p-1}{2}\frac{a-1}{2}} = 1
+\end{equation}
 
+Thus $(a/p) = (p/a)$. On the other hand, as $p - b^2 = a^2$, $p \equiv
+b^2 \pmod a$, and so $(p/a) = (b^2/a) = 1$, which proves a).
 
+We now focus on b). We proceed similarly as in a): using quadratic
+reciprocity, since $a+b$ is odd, we have $((a+b)/p) = (p/(a+b))$. On
+the other hand, since $2p = (a+b)^2 + (a-b)^2$, we have $2p \equiv
+(a-b)^2 \pmod {a+b}$, and so $(2p/(a+b)) = ((a-b)^2/(a+b)) = 1$. But
+since $(2p/(a+b)) = (2/(a+b))(p/(a+b))$, $(p/(a+b)) = (2/(a+b))$, and
+$(2/(a+b)) = (-1)^{\frac{(a+b)^2 - 1}{8}}$.
+
+We proceed to c), which is pretty trivial: $(a+b)^2 = a^2 + b^2 + 2ab
+= p + 2ab$, from which the congruence in c) follows immediately. The
+congruence from d) also follows immediately from c).
+
+\paragraph{Ex. 5.27}
+Suppose that $f$ is such that $b \equiv af \pmod p$. Show that $f^2
+\equiv -1 \pmod p$, and that $2^{(p-1)/4} \equiv f^{ab/2} \pmod p$.
+
+If $b \equiv af \pmod p$. then $0 = (b-af)(b+af) = b^2 - f^2 a^2 \pmod
+p$, so $b^2 \equiv f^2 a^2 \pmod p$. But from $p = a^2 + b^2$ we know
+that $b^2 \equiv -a^2 \pmod p$, and so $-a^2 \equiv f^2 a^2 \pmod p$,
+and since $a \not \equiv 0 \pmod p$, $-1 \equiv f^2 \pmod p$.
+
+Combining b) with d) from the previous exercise, we get that:
+\begin{equation}
+(-1)^{(p-1+2ab)/8} = (-1)^{((a+b)^2 - 1)/8} = ((a+b)/p) \equiv
+  (a+b)^{(p-1)/2} \equiv (2ab)^{(p-1)/4} \pmod p.
+\end{equation}
+
+For the left hand side, we have:
+\begin{equation}
+  (-1)^{(p-1 +2ab)/8} \equiv (f^2)^{(p-1+2ab)/8} = f^{(p-1 + 2ab)/4}
+  \pmod p
+\end{equation}
+
+On the other hand, as $b \equiv af \pmod p$,
+\begin{equation}
+  (2ab)^{(p-1)/4} \equiv (2a^2 f)^{(p-1)/4} = (2f)^{(p-1)/4}
+  a^{(p-1)/2} \equiv (2f)^{(p-1)/4} \pmod p,
+\end{equation}
+since $a$ is a quadratic residue mod p.
+
+We thus get:
+\begin{equation}
+  f^{(p-1 + 2ab)/4} \equiv (2f)^{(p-1)/4} \pmod p
+\end{equation}
+and so dividing both sides by $f^{(p-1)/4}$, we get:
+\begin{equation}
+  f^{ab/2} \equiv 2^{(p-1)/4} \pmod p,
+\end{equation}
+which is a desired conclusion.
+
+\paragraph{Ex. 5.28}
+Show that $x^4 \equiv 2 \pmod p$ has a solution for $p \equiv 1 \pmod
+4$ iff $p$ is of the form $A^2 + 64B^2$.
+
+We note that $2$ is a biquadratic residue precisely when $2^{(p-1)/4}
+\equiv 1 \pmod p$. By previous exercise, $2^{(p-1)/4} \equiv f^{ab/2}
+\pmod p$, $a, b$ and $f$ are such that $p = a^2 + b^2$, $a$ is odd,
+and $b \equiv af \pmod p$. Now since $f^2 \equiv -1 \pmod p$ by
+previous exercise, $f^{ab/4} \equiv 1 \pmod p$ precisely when $ab/2$
+is divisible by 4, but since $a$ is odd, it happens precisely when $b$
+is divisible by $8$. Thus we get a conclusion: $2$ is a biquadratic
+residue precisely when $b = 8B$, that is, when $p = A^2 + 64B^2$ for
+$A = a$ and $B = b/8$.
+
+\paragraph{Ex. 5.29}
+Let $(RR)$ be the number of pairs $(n, n + 1)$ in the set $1,2,3,
+\ldots, p - 1$ such that $n$ and $n + 1$ are both quadratic residues
+modulo $p$. Let $(NR)$ be the number of pairs $(n, n + 1)$ in the set
+$1,2,3, \ldots, p - 1$ such that $n$ is a quadratic nonresidue and $n
++ 1$ is a quadratic residue. Similarly, define $(RN)$ and
+$(NN)$. Determine the sums $(RR) + (RN)$, $(NR) + (NN)$, $(RR) +
+(NR)$, and $(RN) + (NN)$.
+
+This is actually pretty obvious: consider $(RR) + (RN)$. For every
+quadratic residue $n < p-1$, either $n+1$ is a quadratic residue, in
+which case it contributes 1 to $(RR)$, or it isn't, in which case it
+contributes 1 to $(RN)$. Thus $(RR)+(RN)$ is the number of quadratic
+residues smaller than $p-1$, which is $(p-1)/2 = (p-2-(-1))/2$ when
+$-1$ is a quadratic nonresidue, and $(p-1)/2-1 = (p-2-1)/2$ when -1 is
+a quadratic residue. Since $-1$ is a quadratic residue precisely when
+$\epsilon = (-1)^{(p-1)/2} = 1$, we can represent these to cases using
+a single formula $(RR) + (RN) = (p-2-\epsilon)/2$.
+
+The argunent in case $(NR) + (NN)$ is pretty much the same: every
+nonresidue smaller than $p-1$ contributes 1 to the sum, so $(NR) +
+(NN)$ is the number of nonresidues smaller than $p-1$, and so the
+result is $(NR) + (NN) = (p-2+\epsilon)/2$.
+
+For $(RR) + (NR)$ there's a little twist: if $n+1 > 1$ is a quadratic
+residue, then if $n$ is a residue too, then it contributes one to
+$(RR)$, and if it's not, it contributes one to $(NR)$. Thus, every
+residue $n \geq 2$ contributes 1 to $(RR) + (NR)$. Since $1$ is always
+a quadratic residue, there are exactly $(p-1)/2 - 1$ residues larger
+than 1, so $(RR) + (NR) = (p-3)/2$.
+
+On the other hand, the sum $(RN) + (NN)$ is always exactly $(p-1)/2$:
+when considering pairs $(n, n+1)$, all nonresidues can always occur as
+$n+1$.
+
+Similar argument tells us that $(RR) + (RN) + (NR) + (NN)$ is exactly
+$p-2$: there are $p-2$ pairs of the form $(n, n+1)$ with $n, n+1$ in
+$1, 2, \ldots, p-1$, and each $(n, n+1)$ contributes to exactly one of
+$(RR), (RN), (NR), (NN)$. On the other hand, if we add all the sums we
+calculated beforehand, we get:
+
+\begin{eqnarray}
+2(p-2) &=& 2((RR) + (RN) + (NR) + (NN)) \\ &=& ((RR) + (RN)) + ((NR) +
+(NN)) + ((RR) + (NR)) + ((RN) + (NN)) \\ &=& \frac{p-2 - \epsilon +
+  p-2+\epsilon+p-3 + p-1}{2} \\ &=& \frac{4p - 8}{2} = 2p-4
+\end{eqnarray}
+
+And so it seems that we got it basically correct.
+
+\paragraph{Ex. 5.30}
+Show that $(RR) + (NN) - (RN) - (NR) =
+\sum_{n=1}^{p-1}(n(n+1)/p)$. Evaluate this sum and show that it is
+equal to $-1$.
+
+Note there's a misprint in the book that says that the sum is
+$\sum_{n=1}^{p-1} (n(n+1))/p$, so that we're not summing Legendre
+symbols. In that case, once we evaluate the sum, we get the following:
+
+\begin{eqnarray}
+  \sum_{n=1}^{p-1} \frac{n(n+1)}{p} &=& \sum_{n=1}^{p-1} \frac{n^2 +
+    n}{p} \\ &=& \frac{1}{p}\left(\frac{p(p+1)(2p+1)}{6} +
+  \frac{p(p+1)}{2}\right) \\ &=& \frac{(p+1)(2p+1) + 3(p+1)}{6} \\ &=&
+  \frac{(p+1)(2p+5)}{6}
+\end{eqnarray}
+I don't even see how this is an integer.
+
+So, we'll show that the given sum is actually equal to
+$\sum_{n=1}^{p-1}(n(n+1)/p)$, but this is pretty immediate:
+$(n(n+1)/p) = (n/p)((n+1)/p)$, and this product equals 1 if either
+both or none of $n, n+1$ are quadratic residue, and it equals $-1$ if
+exactly one of them is a quadratic residue. Thus, each summand in
+$\sum_{n=1}^{p-2}(n(n+1)/p)$ represent a single pair $(n, n+1)$, and
+contributes exactly 1 to exactly one of $(RR), (NN), -(NR), -(RN)$. We
+can easily extend the summation to $p-1$, as $((p-1)p/p) = 0$.
 \end{document}
 
