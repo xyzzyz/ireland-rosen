@@ -2338,5 +2338,230 @@ exactly one of them is a quadratic residue. Thus, each summand in
 $\sum_{n=1}^{p-2}(n(n+1)/p)$ represent a single pair $(n, n+1)$, and
 contributes exactly 1 to exactly one of $(RR), (NN), -(NR), -(RN)$. We
 can easily extend the summation to $p-1$, as $((p-1)p/p) = 0$.
+
+What remains now is to show that $\sum_{n=1}^{p-1}(n(n+1)/p) =
+-1$. Don't know how to proceed. The hint to use Ex. 5.8 doesn't seem
+too useful: we have here $\sum_{n=1}^{p-1}((n^2 + n)/p)$, and Ex. 5.8
+helps us to deal with sums of the form $\sum_{n=1}^{p-1}((n^2 +
+a)/p)$, where $a$ is kept constant.
+
+\paragraph{Ex. 5.31}
+Use the results of Ex. 5.29 and 5.30 to show that $(RR) =
+\frac{1}{4}(p-4-\epsilon)$, where $\epsilon = (-1)^{(p-1)/2}$
+
+We simply have a system of equations:
+
+\begin{eqnarray}
+  (RR) + (RN) &=& (p-2-\epsilon)/2 \\
+  (NR) + (NN) &=& (p-2+\epsilon)/2 \\
+  (RR) + (NR) &=& (p-3)/2 \\
+  (RN) + (NN) &=& (p-1)/2 \\
+  (RR) + (NN) - (RN) - (NR) &=& -1  \\
+\end{eqnarray}
+
+We should get the result by simply solving it, but I'm too lazy to
+actually do it. Maybe another time. Pull requests welcome.
+
+\paragraph{Ex. 5.32}
+If $p$ is an odd prime, show that $(2/p) = \prod_{j=1}^{(p-1)/2} 2
+\cos(2 \pi j/p)$. Use this to give another proof to Proposition 5.1.3.
+
+Define:
+\begin{equation}
+  f(z) = 2 i \sin(2 \pi z)
+\end{equation}
+\begin{equation}
+  g(z) = 2 \cos(2 \pi z)
+\end{equation}
+
+We need to show that:
+\begin{equation}
+(2/p) = \prod_{j=1}^{(p-1)/2} g(j/p)
+\end{equation}
+
+We note that:
+\begin{eqnarray}
+  \left(\prod_{j=1}^{(p-1)/2} g(j/p)\right)\left(\prod_{j=1}^{(p-1)/2} f(j/p)\right)
+  &=& \prod_{j=1}^{(p-1)/2} f(j/p)g(j/p) \\
+  &=& \prod_{j=1}^{(p-1)/2} 2i \cdot 2\sin(2 \pi j/p) \cos(2 \pi j/p) \\
+  &=& \prod_{j=1}^{(p-1)/2} 2i \sin(2 \pi 2j/p) \\
+  &=& \prod_{j=1}^{(p-1)/2} f(2j/p)
+\end{eqnarray}
+since $2 \sin(x) \cos(x) = \sin(2x)$.
+
+On the other hand, using Proposition 5.3.2 from the book,
+\begin{equation}
+  \prod_{j=1}^{(p-1)/2} f(2j/p) = (2/p) \prod_{j=1}^{(p-1)/2} f(j/p)
+\end{equation}
+Thus:
+\begin{equation}
+  \prod_{j=1}^{(p-1)/2} f(j/p)g(j/p) = \prod_{j=1}^{(p-1)/2} f(2j/p) =
+  (2/p) \prod_{j=1}^{(p-1)/2} f(j/p)
+\end{equation}
+From which the desired equality follows.
+
+Now onto showing the quadratic character of 2. I am quite ashamed to
+admit that I spent way too much time trying to figure this one
+out. Initially I tried to calculate the product. It seems like a
+classic trigonometric identity could be helpful:
+\begin{equation}
+\prod_{i = 1}^n \cos(\alpha_i) = \frac{1}{2^n}\left(\sum_{e \in S}
+\cos(e_1 \alpha_1 + \ldots + e_n \alpha_n\right)
+\end{equation}
+where $S = \{-1, 1\}^n$. It is obtained by repeated application of:
+\begin{equation}
+  2 \cos(\theta)\cos(\phi) = \cos(\theta + \phi) + \cos(\theta - \phi)
+\end{equation}
+However, finally I realized that this is all wholly unnecessary: we
+already know that the result will be $1$ or $-1$, and we only care
+about the sign. The sign of a product is quite easy to determine: we
+just need to calculate if the number of negative factors is odd or
+even. In our case, we are multiplying real parts of first $(p-1)/2$
+$p$-th roots of unity. These are all the roots that lie above the real
+axis. The number of negative factors is thus exactly the number of
+$p$-th roots of unity that lie in second quadrant. It's easy to see
+that the parity here depends on what $p$ is modulo $8$.
+
+If $p = 8k+1$, then there are exactly $4k$ roots that lie above real
+axis, and exactly half of them, $2k$, lie in second quadrant. Since
+$2k$ is even, we have even number of negative factors, and so $(2/p) =
+1$.
+
+When $p = 8k + 3$, we have $4k+1$ roots above real axis. The number
+$4k+1$ is odd, and so we need to figure out if the middle root of
+these $4k+1$ roots lies in first or second quadrant. Middle root is
+$2k+1$-th one, and $(2k+1)/(8k+3) > (2k+1)/(8k+4) = 1/4$, thus middle
+roots lies in second quadrant, and so we have $2k$ roots in first
+quadrant and $2k+1$ roots in the second one. Therefore we have odd
+number of negative factors, and so in this case $(2/p) = -1$.
+
+Analysis of the remaining two cases is similar.
+
+\paragraph{Exercise 5.33}
+Use Proposition 5.3.2 to derive the quadratic character of $-1$.
+
+This is a quite weird and roundabout way to answer this easy question,
+but let's play along. The Proposition 5.3.2 in this case, setting $a =
+-1$, tells us that:
+
+\begin{equation}
+  \prod_{l = 1}^{(p-1)/2} f\left(\frac{-l}{p}\right) =
+  \left(\frac{-1}{p}\right) \prod_{l = 1}^{(p-1)/2}
+  f\left(\frac{l}{p}\right)
+\end{equation}
+
+On the other hand, we note that $f\left(\frac{-l}{p}\right) =
+-f\left(\frac{l}{p}\right)$, thus we have:
+
+\begin{equation}
+  \prod_{l = 1}^{(p-1)/2} f\left(\frac{-l}{p}\right) = (-1)^{(p-1)/2}
+  \prod_{l = 1}^{(p-1)/2} f\left(\frac{l}{p}\right) =
+  \left(\frac{-1}{p}\right) \prod_{l = 1}^{(p-1)/2}
+  f\left(\frac{l}{p}\right)
+\end{equation}
+Dividing by $\prod_{l = 1}^{(p-1)/2} f\left(\frac{l}{p}\right)$ yields
+the result.
+
+\paragraph{Exercise 5.34}
+If $p$ is an odd prime distinct from 3, show that
+\begin{equation}
+  \left(\frac{3}{p}\right) = \prod_{j=1}^{(p-1)/2} \left(3-4 \sin^2\left(\frac{2 \pi j}{p}\right)\right)
+\end{equation}
+
+We note that:
+\begin{eqnarray}
+  \sin(3x) &=& \cos(x)\sin(2x) + \cos(2x)\sin(x) \\
+  &=& \cos(x) (2 \sin(x) \cos(x)) + (\cos^2(x) - \sin^2(x)) \sin(x) \\
+  &=& 2 \sin(x)(1 - \sin^2(x)) + (1 - 2 \sin^2(x)) \sin(x) \\
+  &=& 2 \sin(x) - 2 \sin^3(x) + \sin(x) - 2\sin^3(x) \\
+  &=& \sin(x) (3 - 4 \sin^2(x))
+\end{eqnarray}
+
+Therefore,
+\begin{equation}
+  \prod_{j=1}^{(p-1)/2} \left(3-4 \sin^2\left(\frac{2 \pi
+    j}{p}\right)\right) = \prod_{j=1}^{(p-1)/2} \frac{\sin
+    \left(\frac{3\cdot2 \pi j}{p}\right)} {\sin\left(\frac{2 \pi
+      j}{p}\right)} = \prod_{j=1}^{(p-1)/2} \frac{f
+    \left(\frac{3j}{p}\right)} {f\left(\frac{j}{p}\right)}
+\end{equation}
+where
+\begin{equation}
+  f(z) = 2 i \sin(2 \pi z)
+\end{equation}
+The desired equality now follows from applying Proposition 5.3.2.
+
+\paragraph{Exercise 5.35}
+Use the preceding exercise to show that $3$ is a square modulo $p$ iff
+$p$ is congruent to $-1$ or $-1$ modulo $12$.
+
+The analysis here is similar to the one in Exercise 5.32. Here,
+instead of determining the sign of $\cos(2 \pi j/p)$, we need to
+determine the sign of $\left(3-4 \sin^2\left(\frac{2 \pi
+  j}{p}\right)\right)$. Clearly, it's negative precisely when $
+\sin^2\left(\frac{2 \pi j}{p}\right) > 3/4$. Conveniently, $3/4$ just
+happens to be equal to $\sin^2(2 \pi/6)$, which again allows us to
+divide the circle into now 6 parts, as opposed to 4 parts in Exercise
+5.32, and then do the similar analysis based on what $p$ modulo $12$
+is. 
+
+\paragraph{Exercise 5.36}
+Show that part (c) of Proposition 5.2.2 is true if $a$ is negative and
+$b$ is positive (both still odd).
+
+This question is ill-posed, as Jacobi symbol $(b/a)$ is undefined when
+$a$ is negative.
+
+\paragraph{Exercise 5.37}
+Show that if $a$ is negative, then $p \equiv q (4a)$, $p \not | a$ implies $(a/p) = (a/q)$.
+
+Write $b = -a$, then $b$ is positive, and $p \equiv q (4b)$. Note that
+$(a/p) = (-b/p) = (-1)^{(p-1)/2} (b/p)$, and $(a/q) = (-b/q) =
+(-1)^{(q-1)/2} (b/q)$. Moreover, $(-1)^{(p-1)/2} = (-1)^{(q-1)/2}$,
+since $p \equiv q (4)$ (as $p \equiv q (4b)$). Thus, result follows
+from Proposition 5.3.3.
+
+\paragraph{Exercise 5.37}
+Let $p$ be an odd prime. Derive the quadratic character of $2$ modulo
+$p$ by verifying the following steps, involving the Jacobi symbol:
+
+\begin{equation}
+  \left(\frac{2}{p}\right) = \left(\frac{8-p}{p}\right) =
+  \left(\frac{p}{p-8}\right) = \left(\frac{8}{p-8}\right) =
+  \left(\frac{2}{p-8}\right)
+\end{equation}
+Generalize the argument to show that
+\begin{equation}
+  \left(\frac{a}{p}\right) = \left(\frac{a}{p-4a}\right)
+\end{equation}
+
+We'll prove the general statement. We'll assume that $p > 4a$, so that
+$(a/(p-4a))$ is well defined. Since $4 = 2^2$ is always a quadratic
+residue, $(a/p) = (4a/p)$. Now, since $4a \equiv p-4a (p)$, we have
+\begin{equation}
+  \left(\frac{a}{p}\right) = \left(\frac{4a}{p}\right) =
+  \left(\frac{p-4a}{p}\right)
+\end{equation}
+Then we note that $p \equiv p-4a (4)$, and thus
+\begin{equation}
+  (-1)^{(p-1)/2} = (-1)^{(p-4a-1)/2}
+\end{equation}
+and so by quadratic reciprocity with Jacobi symbols,
+\begin{equation}
+  \left(\frac{p-4a}{p}\right) = \left(\frac{p}{p-4a}\right)
+\end{equation}
+Now, clearly $p \equiv 8 (p-8)$, hence
+\begin{equation}
+\left(\frac{p}{p-4a}\right) = \left(\frac{8}{p-4a}\right) =
+\left(\frac{2 \cdot 4}{p-4a}\right) = \left(\frac{2}{p-4a}\right)
+\end{equation}
+and so we're done.
+
+I spent quite a while trying to figure out why the problem asks us to
+show that $(2/p) = ((8-p)/p)$. It seems like quite a strange thing to
+show, with negative ``numerator'' of Jacobi symbol, especially as the
+next step immediately jumps to $p-8$ in the ``denominator''. I have no
+idea what was the idea here.
+
 \end{document}
 
