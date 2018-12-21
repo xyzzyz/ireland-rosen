@@ -2563,5 +2563,105 @@ show, with negative ``numerator'' of Jacobi symbol, especially as the
 next step immediately jumps to $p-8$ in the ``denominator''. I have no
 idea what was the idea here.
 
+\section{Chapter 6}
+\paragraph{Exercise 6.1}
+Show that $\sqrt{2} + \sqrt{3}$ is an algebraic integer.
+
+Clearly, both $\sqrt{2}$ and $\sqrt{3}$ are algebraic integer, and so
+their sum also is, by Proposition 6.1.5.
+
+\paragraph{Exercise 6.2}
+Let $\alpha$ be an algebraic number. Show that there's an integer $n$
+such that $n\alpha$ is an algebraic integer.
+
+Since $\alpha$ is an algebraic number, we have $f(\alpha) = 0$ for
+some polynomial $f(x) = a_n x^n + \ldots + a_0$. Let
+\begin{equation}
+g(y) = y^n + a_{n-1} y^{n-1} + a_{n-1} a_n y^{n-2} + a_{n-2} a_n^2 y^{n-3} + \ldots + a_1 a_n^{n-2} y + a_0 a_n^{n-1}
+\end{equation}
+Then $g(a_n \alpha) = 0$, since: 
+\begin{eqnarray}
+  g(a_n \alpha) &=& (a_n \alpha)^n + a_{n-1} (a_n \alpha)^{n-1} +
+  a_{n-1} a_n (a_n \alpha)^{n-2} + \ldots + a_1 a_n^{n-2} a_n \alpha +
+  a_0 a_n^{n-1} \\ &=& a_n^{n-1}(a_n \alpha^n + a_{n-1} \alpha^{n-1} +
+  \ldots + a_1 \alpha + a_0) = 0
+\end{eqnarray}
+since $a_n \alpha^n + a_{n-1} \alpha^{n-1} + \ldots + a_1 \alpha + a_0
+= f(\alpha) = 0$.
+
+\paragraph{Exercise 6.3}
+If $\alpha$ and $\beta$ are algebraic integers, prove that any
+solution to $f(x) = x^2 + \alpha x + \beta = 0$ is an algebraic
+integer. Generalize this result.
+
+Let $\gamma_1, \gamma_2$ be the two solutions of $f(x) = 0$. Let $V =
+\Z[\alpha, \beta, \gamma_1, \gamma_2, \gamma_1 \gamma_2,
+  \alpha \gamma_1, \alpha \gamma_2, \beta \gamma_1, \beta \gamma_2,
+  1]$. We note that $\gamma_i^2 = - \alpha \gamma_i - \beta \cdot 1
+\in V$. Therefore, $\gamma_i V \subset V$, and so $\gamma_i$ are
+algebraic integers.
+
+Obviously, the generalization is that whenever $\gamma$ is a root of
+$x^n + \alpha_{n-1} x^{n-1} + \ldots + \alpha_1 x + \alpha_0$, and
+$\alpha_i$ are algebraic integers, so is $\gamma$. It can be proven by
+the method above, but it's much easier to note that Proposition 6.1.4
+implies that $\gamma$ is algebraic integer whenever we have $\Z
+\subset \Z[\gamma] \subset W$ for some finitely generated $\Z$-module
+$W$. We also note that if $\gamma$ is an algebraic integer, then
+$\Z[\gamma]$ is finite $\Z$-module itself -- essentially because
+$\gamma^n = -a_{n-1} \gamma^{n-1} - \ldots - a_0$. Thus, $\Z \subset
+\Z[\alpha_0] \subset \ldots \subset \Z[\alpha_0, \ldots, \alpha_{n-1}]$
+  is a chain of finite module extensions, and thus $B = \Z[\alpha_0,
+    \ldots, \alpha_{n-1}]$ is also a finite $\Z$-module. Then,
+  $B[\gamma]$ is finite over $B$, and so $B[\gamma]$ is finite over
+  $\Z$.
+
+\paragraph{Exercise 6.4}
+A polynomial $f(x) \in \Z[x]$ is said to be primitive if the greatest
+common divisor of its coefficients is 1. Prove that product of
+primitive polynomials is also primitive.
+
+Let $f, g \in \Z[x]$ be primitive. Let $h = fg$. Let $n$ be greatest
+common divisor of the coefficients of $h$. Suppose $n \ne 1$. Let $p$
+be a prime dividing $n$ Let $\overline{f}, \overline{g} \in \Z/(p)[x]$
+be reductions of $f, g$ modulo $p$. Since $f$ and $g$ are primitive,
+both $\overline{f}, \overline{g}$ are nonzero. Since $\Z/(p)[x]$ is a
+domain, $\overline{f}\overline{g} \ne 0$. But
+$\overline{f}\overline{g} = \overline{fg} = \overline{h} \ne 0$, and
+so $p$ must not divide at least one of the coefficients of $h$, which
+is a contradiction.
+
+\paragraph{Exercise 6.5}
+Let $\alpha$ be an algebraic integer and $f(x) \in \Q[x]$ be the monic
+polynomial of least degree such that $f(\alpha) = 0$. Use Exercise 6.4
+to show that $f(x) \in \Z[x]$.
+
+Indeed, since $\alpha$ is an algebraic integer, there exists monic
+$g(x) \in \Z[x]$ such that $g(\alpha) = 0$. Then, since $f$ is
+minimal, it must divide $g$, and so $g = fh$ for some $h \in
+\Q[x]$. Note that since $f$ and $g$ are both monic, $h$ must also be
+monic.
+
+Let $u$ be the least common multiple of the denominators of the
+coefficients of $f$ in their lowest terms. Then $uf \in \Z[x]$ is
+primitive: write $f(x) = x^n + (a_{n-1}/b_{n-1}) x^{n-1} + \ldots +
+(a_0/b_0)$, then $u$ is the least common multiple of $b_0, \ldots,
+b_{n-1}$. We have $uf(x) = u x^n + (u/b_{n-1}) a_{n-1} x^{n-1} +
+\ldots + (u/b_0) a_0$. Let $p$ be any prime dividing $u$, and let
+$p^k$ be the highest power of $p$ dividing $u$. Then $p^k$ must divide
+one of the $b_i$-s -- indeed, otherwise $u/p$ would be a smaller
+common multiple of $b_i$-s. Therefore, let $b_j$ be such that $p^k |
+b_j$, then $p$ does not divide $u/b_j$. Obviously, $p$ does not divide
+$a_j$ either, as it divides $b_j$, and $a_j/b_j$ is in lowest
+terms. Thus $p$ does not divide $(u/b_j)a_j$, which is a coefficient
+at $x^j$ in $uf(x)$.
+
+We similarly define $v$ to be the least common multiple of the
+denominators of the coefficients of $h$ in their lowest terms, and
+similarly argue that $vg$ is primitive. We then have $uvg = (uf)(vg)$,
+and since both $uf, vg$ are primitive, so is $uvg$, but that can only
+happen when $u = v = 1$, in which case $f, h \in \Z[x]$.
+
+
 \end{document}
 
