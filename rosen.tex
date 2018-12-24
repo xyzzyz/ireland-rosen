@@ -1,10 +1,10 @@
-\documentclass[notitlepage]{article} 
+\documentclass[notitlepage]{article}
 \usepackage[MeX]{polski}
 \usepackage[utf8]{inputenc} \usepackage{anysize}
 \usepackage{graphicx}
-\usepackage{enumerate} 
-\usepackage{amsmath} 
-\usepackage{amssymb} 
+\usepackage{enumerate}
+\usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{amsfonts}
 \usepackage{amsthm}
 \marginsize{3cm}{2cm}{1cm}{1cm}
@@ -47,9 +47,10 @@
 \newcommand\GG{\mathbb{G}}
 \newcommand\LL{\mathcal{L}}
 \newcommand\p{\mathcal{P}}
+\newcommand{\Jacobi}[2]{\left(\frac{#1}{#2}\right)}
 
 \title{Solutions to Ireland, Rosen ``A Classical Introduction to Modern Number Theory''}
-\author{Adam Michalik} 
+\author{Adam Michalik}
 
 \begin{document}
 \maketitle
@@ -258,7 +259,7 @@ is an ideal of $\Z$, and so $I = (m)$ for some $m$.
 \paragraph{Ex. 1.21} Skipped.
 \paragraph{Ex. 1.22} Skipped.
 
-\paragraph{Ex. 1.23} 
+\paragraph{Ex. 1.23}
 Suppose that $a^2 + b^2 = c^2$ with $a, b, c \in \Z$ For example, $3^2 + 4^2 = 5^2$ and $5^2 +
 12^2 = 13^2$ . Assume that $(a, b) = (b, c) = (c, a) = 1$. Prove that there exist integers $u$
 and $v$ such that $c - b = 2u^2$ and $c + b$ = $2v^2$ and $(u, v) = 1$ (there is no loss in
@@ -546,7 +547,7 @@ If $f(n)$ is a multiplicative function, show that the function $g(n) =
 
 We'll prove a stronger theorem, that is, if $f$ and $g$ are
 multiplicative functions, then their Dirichlet product is also a
-multiplicative function. 
+multiplicative function.
 
 Indeed, for $(a, b) = 1$:
 \begin{equation}
@@ -869,7 +870,7 @@ For $n = \prod p_i^{a_i}$, $n^s = \prod (p_i^{a_i})^s$, so $1/n^s =
 Verify the formal identities:
 \begin{enumerate}[a)]
 \item $\zeta(s)^{-1} = \sum \mu(n)/n^s$
-  
+
 We have:
 \begin{equation}
   \left(\sum \frac{\mu(n)}{n^s}\right) \cdot \zeta(s)  = \sum_n \sum_{d|n} \frac{\mu(d)}{d^s(n/d)^s} = \sum_n \frac{1}{n^s}\sum_{d|n} \mu(d) = 1
@@ -885,7 +886,7 @@ We have:
 \end{equation}
 
 \item $\zeta(s)\zeta(s-1) = \sum \sigma(n)/n^s$
-  
+
   We have:
 \begin{eqnarray}
   \zeta(s)\zeta(s-1) &=& \left(\sum_{n=1}^\infty 1/n^s\right)
@@ -1419,7 +1420,7 @@ Suppose that $p$ is a prime of the form $8t + 3$ and that $q = (p -
 
 By Ex. 4.5, it is enough to show that $-2$ has order $(p-1)/2 =
 q$. Let $k$ be the order of $-2$. Since $k$ must divide $p-1$, and
-$p-1 = 2q$, so $k$ must be $2$, $q$, or $2q$. 
+$p-1 = 2q$, so $k$ must be $2$, $q$, or $2q$.
 
 If the order is $2$, then $(-2)^2 \equiv 1 \pmod p$, so $3 \equiv 0
 \pmod p$, and so $p = 3$, but then $q = (p-1)/q$ is not prime.
@@ -1766,7 +1767,7 @@ solutions as $a x^{m'} + b y^{n'} \equiv c \pmod p$, where $m' =
 
 %% Every solution to the first equation yields the solution to the
 %% second: indeed, $m = m' u$, $n = n' v$, and we can write $a x^m + b
-%% y^n = a (x^u)^{m'} + b (y^v)^{n'}$. 
+%% y^n = a (x^u)^{m'} + b (y^v)^{n'}$.
 
 %% Now consider a solution $(x, y)$ to $a x^{m'} + b y^{n'} \equiv c
 %% \pmod p$. Let $g$ be a primitive root modulo $p$, and write $x = g^e$,
@@ -1807,7 +1808,7 @@ of degree 2 over a field, there cannot be any more solutions.
 
 If $a \equiv 0 \pmod p$, there's only one solution, $x \equiv 0 \pmod
 p$, but also $1+(0/p) = 1+0 = 1$.
- 
+
 Otherwise, there are either 0 or 2 solutions. There are 0 solutions
 whenever $a$ is not a quadratic residue, that is, $(a/p) = -1$, and $1
 + (a/p) = 1 + (-1) = 0$ in that case. In the other case, $(a/p) = 1$,
@@ -2047,7 +2048,7 @@ exactly as many residues as there are nonresidues). Therefore, let $D
   \sum_{\mod D} \left(\frac{a}{D}\right) = \sum_{\mod D}
   \left(\frac{a}{p_1}\right) \left(\frac{a}{D'}\right)
 \end{equation}
- 
+
 where $\sum_{\mod D}$ denotes sum over reduced residues modulo $D$.
 
 By Chinese remainder theorem, each reduced residue $a$ modulo $D$
@@ -2137,7 +2138,7 @@ $\Z[i]$. Remember that $\Z[i]$ has unique factorization.
 Since $p \equiv 1 \pmod 4$, $(-1)^{(p-1)/2} = 1$, and so $-1$ is a
 quadratic residue. Thus there exists $s \leq p-1$ such that $s^2
 \equiv -1 \pmod p$, which is the same as saying that $p$ divides $s^2
-+ 1$, that is, $pt = s^2 + 1$. 
++ 1$, that is, $pt = s^2 + 1$.
 
 In $\Z[i]$ we can factor $pt = s^2 + 1$ as $pt = (s-i)(s+i)$. If $p$
 was a prime, it would have to divide one of $s+i, s-i$, and so $p^2 =
@@ -2503,7 +2504,7 @@ determine the sign of $\left(3-4 \sin^2\left(\frac{2 \pi
 happens to be equal to $\sin^2(2 \pi/6)$, which again allows us to
 divide the circle into now 6 parts, as opposed to 4 parts in Exercise
 5.32, and then do the similar analysis based on what $p$ modulo $12$
-is. 
+is.
 
 \paragraph{Exercise 5.36}
 Show that part (c) of Proposition 5.2.2 is true if $a$ is negative and
@@ -2513,12 +2514,12 @@ This question is ill-posed, as Jacobi symbol $(b/a)$ is undefined when
 $a$ is negative.
 
 \paragraph{Exercise 5.37}
-Show that if $a$ is negative, then $p \equiv q (4a)$, $p \not | a$ implies $(a/p) = (a/q)$.
+Show that if $a$ is negative, then $p \equiv q \pmod {4a}$, $p \not | a$ implies $(a/p) = (a/q)$.
 
-Write $b = -a$, then $b$ is positive, and $p \equiv q (4b)$. Note that
+Write $b = -a$, then $b$ is positive, and $p \equiv q \pmod {4b}$. Note that
 $(a/p) = (-b/p) = (-1)^{(p-1)/2} (b/p)$, and $(a/q) = (-b/q) =
 (-1)^{(q-1)/2} (b/q)$. Moreover, $(-1)^{(p-1)/2} = (-1)^{(q-1)/2}$,
-since $p \equiv q (4)$ (as $p \equiv q (4b)$). Thus, result follows
+since $p \equiv q  \pmod 4$ (as $p \equiv q \pmod {4b}$). Thus, result follows
 from Proposition 5.3.3.
 
 \paragraph{Exercise 5.37}
@@ -2537,12 +2538,12 @@ Generalize the argument to show that
 
 We'll prove the general statement. We'll assume that $p > 4a$, so that
 $(a/(p-4a))$ is well defined. Since $4 = 2^2$ is always a quadratic
-residue, $(a/p) = (4a/p)$. Now, since $4a \equiv p-4a (p)$, we have
+residue, $(a/p) = (4a/p)$. Now, since $4a \equiv p-4a \pmod p$, we have
 \begin{equation}
   \left(\frac{a}{p}\right) = \left(\frac{4a}{p}\right) =
   \left(\frac{p-4a}{p}\right)
 \end{equation}
-Then we note that $p \equiv p-4a (4)$, and thus
+Then we note that $p \equiv p-4a  \pmod 4$, and thus
 \begin{equation}
   (-1)^{(p-1)/2} = (-1)^{(p-4a-1)/2}
 \end{equation}
@@ -2579,7 +2580,7 @@ some polynomial $f(x) = a_n x^n + \ldots + a_0$. Let
 \begin{equation}
 g(y) = y^n + a_{n-1} y^{n-1} + a_{n-1} a_n y^{n-2} + a_{n-2} a_n^2 y^{n-3} + \ldots + a_1 a_n^{n-2} y + a_0 a_n^{n-1}
 \end{equation}
-Then $g(a_n \alpha) = 0$, since: 
+Then $g(a_n \alpha) = 0$, since:
 \begin{eqnarray}
   g(a_n \alpha) &=& (a_n \alpha)^n + a_{n-1} (a_n \alpha)^{n-1} +
   a_{n-1} a_n (a_n \alpha)^{n-2} + \ldots + a_1 a_n^{n-2} a_n \alpha +
@@ -2662,6 +2663,237 @@ similarly argue that $vg$ is primitive. We then have $uvg = (uf)(vg)$,
 and since both $uf, vg$ are primitive, so is $uvg$, but that can only
 happen when $u = v = 1$, in which case $f, h \in \Z[x]$.
 
+\paragraph{Exercise 6.6}
+Let $x^2 + mx + n \in \Z[x]$ be irreducible, and let $\alpha$ be a
+root. Show that $\Q[\alpha] = \{r +s\alpha: r, s \in \Q\}$ is a ring
+(in fact, it is a field). Let $m^2 + 4n = D_0^2 D$, where $D$ is
+square-free. Show that $\Q[\alpha] = \Q[\sqrt{D}]$.
 
+That $\Q[\alpha]$ is a field is very standard result: it is easily
+seen that $\Q[\alpha] \simeq \Q[x]/(x^2 + mx + n)$, which is a field,
+because the polynomial is irreducible.
+
+Now, we note that the quadratic formula tells us that the roots of
+$x^2 + mx + n$ are
+\begin{equation}
+  x_i = \frac{-m \pm \sqrt{m^2 + 4n}}{2}
+\end{equation}
+Now $\sqrt{m^2 + 4n} = \sqrt{D_0^2D} = D_0 \sqrt{D}$, from which the
+fact that $\Q[\alpha] = \Q[\sqrt{D}]$ follows.
+
+\paragraph{Exercise 6.7}
+If $D \equiv 2, 3  \pmod 4$, show that algebraic integers in $\Q[\sqrt{D}]$
+have the form $a + b \sqrt{D}$, where $a, b \in \Z$. If
+$D \equiv 1  \pmod 4$, show that algebraic integers in $\Q[\sqrt{D}]$ have
+the form $a + b((-1 + \sqrt{D})/2)$, where $a, b \in \Z$.
+
+Let $\alpha = r + s \sqrt{D}$ be an algebraic integer. Let
+$f(x) = x^2 - 2rx + (r^2 - Ds^2)$. Note that:
+\begin{eqnarray}
+  f(\alpha) &=& (r+s\sqrt{D})^2 -2r(r+s\sqrt{D}) + (r^2 - Ds^2) \\
+            &=& r^2 + 2 rs\sqrt{D} + s^2 D - 2r^2 -2rs\sqrt{D} + r^2  - D s^2 \\
+            &=& 0
+\end{eqnarray}
+Since $f(\alpha) = 0$, $\deg f = 2$ and $\alpha \not \in \Q$, $f$ is
+the minimal polynomial of $\alpha$. Since $f$ is monic and $\alpha$ is
+an algebraic integer, its coefficients must be integers. Thus $-2r$
+and $r^2 - Ds^2$ are integers.
+
+Since $-2r$ is an integer, $r = u/2$ for some integer $u$. Since
+$r^2 - Ds^2$ is an integer, so is $4(r^2 - Ds^2) = u^2 - 4Ds^2$, but
+since $u^2$ is an integer, so is $4Ds^2$. This can only happen if
+$s = v/2$ for some integer $v$.
+
+We note that $(u^2 - Dv^2)/4 = r - Ds^2$ is an integer, and since
+$u, v$ are integers, thus can only happen when
+$u^2 - Dv^2 \equiv 0  \pmod 4$.
+
+Suppose $u$ is even. Then, $u^2 \equiv 0  \pmod 4$, and so
+$D v^2 \equiv 0  \pmod 4$. If $v$ is odd, then $v^2 \equiv 1  \pmod 4$, and so
+$D \equiv 0  \pmod 4$, which is a contradiction, since $D$ was assumed to
+be square free. Thus, if $u$ is even, $r = u/2$ is an integer, and so
+is $s = v/2$, since $v$ is in that case also even.
+
+Turning the question around, if $r, s$ are integers, then so are $-2r$
+and $r^2 - Ds^2$, thus $r + s \sqrt{D}$ is always an algebraic integer
+whenever $r, s \in Z$.
+
+Suppose now that $u$ is odd. Then $u^2 \equiv 1  \pmod 4$, and so
+$1 \equiv Dv^2  \pmod 4$. We thus must also have that $v$ is odd: if $v$ is
+even, $v^2 \equiv 0  \pmod 4$, which yields a contradiction. Therefore, $v$
+is odd, and $v^2 \equiv 1  \pmod 4$. Then, since $u^2 \equiv D v^2  \pmod 4$,
+$D \equiv 1  \pmod 4$.
+
+Now, if $r = u/2, s = v/2$ are any half integers for some odd $u, v$,
+and $D \equiv 1  \pmod 4$, we have that $-2r$ is an integer, and also since
+$u^2 - D v^2 \equiv 1 - 1 \cdot 1 = 0  \pmod 4$,
+$(u^2 - D v^2)/4 = r^2 - Ds^2$ is also an integer.
+
+Therefore, if $D \equiv 2, 3  \pmod 4$. all algebraic integers in
+$\Q[\sqrt{D}]$ are $r + s \sqrt{D}$ for any integers $r, s$. If
+$D \equiv 1$, then apart from these we also get $u/2 + v\sqrt{D}/2$
+for some odd $u, v$.
+
+\paragraph{Exercise 6.8}
+Let $\omega = e^{2 \pi i/3}$, $\omega$ satisfies $x^3 - 1 = 0$. Show
+that $(2 \omega + 1)^2 = -3$, and use this to determine $(-3/p)$ by
+the method of section $2$.
+
+To prove that $(2 \omega + 1)^2 = - 3$, we write
+\begin{equation}
+  (2 \omega + 1)^2 = 4 \omega^2 + 4 \omega + 1 = 4(\omega^2 + \omega + 1) - 3 = -3
+\end{equation}
+since $\omega^2 + \omega + 1 = 0$, as
+$0 = \omega^3 - 1 = (\omega-1)(\omega^2 + \omega + 1)$, and
+$\omega \ne 1$..
+
+Let $y = 2 \omega + 1$. We have $y^2 = -3$. We have that
+$(-3/p) \equiv (-3)^{(p-1)/2} = (y^2)^{(p-1)/2} = y^{p-1} \pmod
+p$. Thus $y^p = (-3/p)y \pmod p$. We note that
+$y^p = (2 \omega + 1)^p \equiv 2^p \omega^p + 1^p \pmod p$. Note that
+$2^p \equiv 2 \pmod p$, and so $y^p \equiv 2 \omega^p + 1 \pmod p$.
+
+Since $\omega^3 = 1$, we can consider $p$ modulo 3. If
+$p \equiv 1 \pmod 3$, $\omega^p = \omega$, and so
+$y^p \equiv 2 \omega^p + 1 = 2 \omega + 1 = y \pmod p$, and since
+$y^p \equiv (-3/p)y \pmod p$, we have
+$(-3/p)y \equiv y^p \equiv y \pmod p$. We multiply both sides by $y$
+to obtain $-3(-3/p) \equiv -3 \pmod p$, and thus
+$(-3/p) \equiv 1 \pmod p$.
+
+If $p \equiv 2 \pmod 3$, $\omega^p = \omega^2 = -\omega - 1$, since
+$\omega^2 + \omega + 1 = 0$. Thus
+$y^p \equiv 2 \omega^p + 1 = 2 \omega^2 + 1 = -2 \omega - 2 + 1 =
+-(2\omega+1) = -y$. We now proceed same as in the case
+$p \equiv 1 \pmod 3$, obtaining that $(-3/p) = -1$.
+
+\paragraph{Exercise 6.9}
+Verify Proposition 6.3.2 explicitly for $p = 3, 5$, i.e., write out
+the Gauss sum longhand and square.
+
+Let $p=3$, and $\zeta$ be the primitive root, so that $\zeta^3 =
+1$. The Gauss sum is then:
+\begin{eqnarray}
+  g = g_1 &=& (0/3) \zeta^0 + (1/3) \zeta^1 + (2/3) \zeta^2\\
+          &=& \zeta - \zeta^2
+\end{eqnarray}
+Thus
+$g^2 = (\zeta - \zeta^2)^2 = \zeta^2 - 2 \zeta^3 + \zeta^4 = \zeta^2 -
+2 + \zeta$. Now, since $\zeta^2 + \zeta + 1 = 0$,
+$\zeta^2 + \zeta = -1$. and so
+$g^2 = \zeta^2 - 2 + \zeta = -3 = (-1)^{(3-1)/2} 3$.
+
+Let now $p = 5$. The Gauss sum is:
+\begin{eqnarray}
+  g  &=& (0/5) \zeta^0 + (1/5) \zeta^1 + (2/5) \zeta^2 + (3/5) \zeta^3 + (4/5) \zeta^4 \\
+     &=& \zeta - \zeta^2 - \zeta^3 + \zeta^4
+\end{eqnarray}
+We note that
+$g + 1 + 2 \zeta^2 + 2 \zeta^3 = 1 + \zeta + \zeta^2 + \zeta^3 +
+\zeta^4 = 0$, and so $g = -(2 \zeta^2 + 2\zeta^3 + 1)$. Thus:
+\begin{eqnarray}
+  g^2  &=& (-(2 \zeta^2 + 2\zeta^3 + 1))^2 \\
+       &=& 4 \zeta^4 + 4 \zeta^6 + 1 + 4 \zeta^2 + 4 \zeta^3 + 8 \zeta^5 \\
+       &=& 4 \zeta^4 + 4 \zeta + 1 + 4 \zeta^2 + 4 \zeta^3  + 8 \\
+       &=& 5 + 4(1 + \zeta + \zeta^2 + \zeta^3 + \zeta^4) \\
+       &=& (-1)^{(5-1)/2} 5
+\end{eqnarray}
+
+\paragraph{Exercise 6.10}
+What is $\sum_{a=1}^{p-1} g_a$?
+
+Since $g_a = (a/p)g_1$ by Proposition 6.3.1,
+$\sum_{a=1}^{p-1} g_a = g_1 \sum_{a=1}^{p-1} (a/p) = 0$, since there
+as many quadratic residues as non-residues.
+
+\paragraph{Exercise 6.11}
+By evaluating $\sum_t (1+(t/p)) \zeta^t$ in two ways, prove that $g = \sum_t \zeta^{t^2}$.
+
+We note that $1+(t/p)$ is the number of solutions to
+$s^2 \equiv t \pmod p$, that is, $2$ when $t$ is a quadratic residue,
+and $0$ when it's a quadratic non-residue. On the other hand,
+$\sum_s \zeta^{s^2}$ will contribute two equal summands for each
+quadratic residue $t \equiv s^2 \pmod p$. Thus
+
+\begin{equation}
+  \sum_t (1+(t/p)) \zeta^t = \sum_t \zeta^{t^2}
+\end{equation}
+
+Now, we have:
+\begin{equation}
+  \sum_t (1+(t/p)) \zeta^t = \sum_t \zeta^t + \sum_t (t/p) \zeta^t = 0 + g = g
+\end{equation}
+since $\sum_t \zeta^t = (\zeta^p - 1)/(\zeta-1) = 0$.
+
+\paragraph{Exercise 6.12}
+Write $\psi_a(t) = \zeta^{at}$. Show that
+\begin{enumerate}[a)]
+\item $\overline{\psi_a(t)} = \psi_a(-t) = \psi_{-a}(t)$
+\item $(1/p)\sum_a \psi_a(t-s) = \delta(t, s)$
+\end{enumerate}
+
+a) is trivial: since
+$\psi_a(t) \overline{\psi_a(t)} = |\psi_a(t)|^2 = 1$,
+$\overline{\psi_a(t)} = 1/\psi_a(t) = 1/\zeta^{at} = \zeta^{-at} =
+\psi_{-a}(t) = \psi_a(t)$.
+
+b) is also trivial: it follows immediately from Lemma 1 in Section 6.3.
+
+\paragraph{Exercise 6.13}
+Let $f: \Z \to \C$. Suppose that $p$ is prime and $f(n+p) = f(n)$ for
+all $n \in \Z$. Let $\hat{f}(a) = p^{-1} \sum_t f(t) \psi_{-a}(t)$. Prove
+that $f(t) = \sum_a\hat{f}(a)\psi_a(t)$. This result is directly
+analogous to a result in the theory of Fourier series.
+
+We write:
+\begin{eqnarray}
+  \sum_a\hat{f}(a)\psi_a(t) &=& \sum_a p^{-1} (\sum_s f(s) \psi_{-a}(s)) \psi_a(t) \\
+                            &=& \sum_a \sum_s p^{-1} f(s) \psi_{-a}(s) \psi_a(t) \\
+                            &=& \sum_a \sum_s p^{-1} f(s) \psi_a(-s) \psi_a(t) \\
+                            &=& \sum_a \sum_s p^{-1} f(s) \psi_a(t-s) \\
+                            &=& \sum_s \sum_a p^{-1} f(s) \psi_a(t-s) \\
+                            &=& \sum_s  p^{-1} f(s) \sum_a \psi_a(t-s) \\
+                            &=& \sum_s  p^{-1} f(s) p \delta(t, s) \\
+                            &=& p^{-1} f(t) p \\
+                            &=& f(t)
+\end{eqnarray}
+We used a) and b) from Exercise 6.12, and also
+$\psi_a(u) \psi_a(v) = \psi_a(u+v)$.
+
+\paragraph{Exercise 6.14}
+In Exercise 6.13 take $f$ to be the Legendre symbol and show that $\hat{a} = p^{-1} g_{-a}$.
+
+Follows straight from the definition.
+
+\paragraph{Exercise 6.15}
+Show that
+\begin{equation}
+  \left|\sum_{t = n}^m \Jacobi{t}{p}\right| < \sqrt{p}\log p.
+\end{equation}
+The inequality holds for the sum over any range.
+
+Since $g^2 = (-1)^{(p-1)/2} p$, $|g| = \sqrt{p}$. Therefore we write:
+\begin{eqnarray}
+  \left|\sum_{t = n}^m \Jacobi{t}{p}\right|
+  &=& p^{-1/2} \left|\sum_{t = n}^m \Jacobi{t}{p} g\right| \\
+  &=& p^{-1/2} \left|\sum_{t = n}^m g_t \right| \\
+\end{eqnarray}
+as $(t/p) g = g_t$.
+
+Using Exercise 6.10 we can write
+$\left|\sum_{t = n}^m g_t \right| = \left|\sum_{t = n}^{n+k} g_t
+\right|$ for some $k \leq p$.  We then have:
+\begin{eqnarray}
+  \left|\sum_{t = n}^{n+k} g_t \right|
+  &=& \left|\sum_{t = n}^{n+k} \sum_a (a/p) \zeta^{at} \right| \\
+  &=& \left|\sum_a (a/p)\sum_{t = n}^{n+k} \zeta^{at} \right|
+\end{eqnarray}
+We now focus on $\sum_{t = n}^{n+k} \zeta^{at}$. We note that it is equal to:
+\begin{equation}
+  \sum_{t = n}^{n+k} (\zeta^a)^t = \zeta^{an} \frac{1 - \zeta^{a(k+1)}}{1-\zeta^a}
+\end{equation}
+Therefore, we want to estimate:
+\begin{equation}
+  \left|\sum_a (a/p)\sum_{t = n}^{n+k} \zeta^{at} \right| = \left|\sum_a(a/p) \zeta^{an} \frac{1 - \zeta^{a(k+1)}}{1-\zeta^a} \right|
+\end{equation}
 \end{document}
-
