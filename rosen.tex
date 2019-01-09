@@ -42,6 +42,7 @@
 \newcommand\Q{\mathbb{Q}}
 \newcommand\Z{\mathbb{Z}}
 \newcommand\N{\mathbb{N}}
+\newcommand\R{\mathbb{R}}
 \newcommand\E{\mathcal{E}}
 \newcommand\F{\mathcal{F}}
 \newcommand\GG{\mathbb{G}}
@@ -262,7 +263,7 @@ is an ideal of $\Z$, and so $I = (m)$ for some $m$.
 \paragraph{Ex. 1.23}
 Suppose that $a^2 + b^2 = c^2$ with $a, b, c \in \Z$ For example, $3^2 + 4^2 = 5^2$ and $5^2 +
 12^2 = 13^2$ . Assume that $(a, b) = (b, c) = (c, a) = 1$. Prove that there exist integers $u$
-and $v$ such that $c - b = 2u^2$ and $c + b$ = $2v^2$ and $(u, v) = 1$ (there is no loss in
+and $v$ such that $c - b = 2u^2$ and $c + b = 2v^2$ and $(u, v) = 1$ (there is no loss in
 generality in assuming that $b$ and $c$ are odd and that $a$ is even). Consequently $a = 2uv$,
 $b = v^2 - u^2$ , and $c = v^2 + u^2$ . Conversely show that if $u$ and $v$ are given, then the
 three numbers $a$, $b$, and $c$ given by these formulas satisfy $a^2 + b^2 = c^2$.
@@ -2896,4 +2897,185 @@ Therefore, we want to estimate:
 \begin{equation}
   \left|\sum_a (a/p)\sum_{t = n}^{n+k} \zeta^{at} \right| = \left|\sum_a(a/p) \zeta^{an} \frac{1 - \zeta^{a(k+1)}}{1-\zeta^a} \right|
 \end{equation}
+
+Note that $|1 - \zeta^{a(k+1)}| \leq 2$, and since $\zeta^a = e^{2 \pi
+  i a/p}$, we have $|1 - \zeta^a| = |1-e^{2 \pi i a/p}| = |2 \sin(\pi
+a/p)|$ -- the last equality, that is, $|1-e^{2 i x}| = 2|\sin(x)|$,
+is easy to see geometrically, but I'm way too lazy to reproduce a
+drawing here (acknowledgements to Danka for helping me see this).
+
+We therefore write:
+\begin{equation}
+  \left|\sum_a(a/p) \zeta^{an} \frac{1 - \zeta^{a(k+1)}}{1-\zeta^a}
+  \right| \leq \sum_{a = 1}^{p-1} \left|\frac{1 -
+    \zeta^{a(k+1)}}{1-\zeta^a}\right| \leq \sum_{a = 1}^{p-1}
+  \left|\frac{2}{2 \sin(\pi a/p)}\right|
+\end{equation}
+We now note that $|\sin(\pi a/p)| = |\sin(\pi - \pi a/p)| = |\sin(\pi
+(p-a)/p)|$, and so:
+\begin{equation}
+  \sum_{a = 1}^{p-1} \left|\frac{2}{2 \sin(\pi a/p)}\right| = 2
+  \sum_{a = 1}^{(p-1)/2} \left|\frac{1}{\sin(\pi a/p)}\right|
+\end{equation}
+Now, since for $a = 1, \ldots, (p-1)/2$, angles $\pi a/p$ are acute,
+we can use the hint, which says that for acute angles $x$, we have
+$\sin(x) \geq (2/\pi) x$, thus we obtain:
+\begin{equation}
+  2 \sum_{a = 1}^{(p-1)/2} \left|\frac{1}{\sin(\pi a/p)}\right| \leq
+  2 \sum_{a = 1}^{(p-1)/2} \left|\frac{1}{(2/\pi)(\pi a/p)}\right| = 
+  p \sum_{a = 1}^{(p-1)/2} \frac{1}{a} < p \log(p)
+\end{equation}
+Going back, this shows that:
+\begin{equation}
+  \left|\sum_{t = n}^{n+k} g_t \right|
+  = \left|\sum_a (a/p)\sum_{t = n}^{n+k} \zeta^{at} \right| < p \log(p)
+\end{equation}
+Going back even more, we obtain:
+\begin{equation}
+  \left|\sum_{t = n}^m \Jacobi{t}{p}\right| = p^{-1/2} \left|\sum_{t =
+    n}^m g_t \right| < p^{-1/2} p \log(p) = \sqrt{p} \log(p)
+\end{equation}
+
+\paragraph{Exercise 6.16}
+Let $\alpha$ be an algebraic number with minimal polynomial
+$f(x)$. Show that $f(x)$ doesn't have repeated roots in $\mathbb{C}$.
+
+If $f(x) = (x-\beta)^2 g(x)$ for some $g(x) \in \C[x]$, taking the
+derivative we obtain:
+\begin{equation}
+  f'(x) = 2(x-\beta) g(x) + (x-\beta)^2 g'(x) = (x-\beta)(2 g(x) + (x-\beta)g'(x))
+\end{equation}
+Therefore $f(\beta) = f'(\beta) = 0$. Consider ideal $(f, f') \subset
+\Q[x]$. Since $\Q[x]$ is a PID, $(f, f') = (h)$ for some $h \in
+\Q[x]$, and thus $h(x) = u(x) f(x) + v(x) f'(x)$. Then, $h(\beta) =
+u(\beta) f(\beta) + v(\beta) f'(\beta) = 0$, and so $h$ is not
+constant polynomial. Since $h$ divides $f'$, and $\deg f' < \deg f$,
+$\deg h < \deg f$. Write $f(x) = h(x) k(x)$, Since $f(\alpha) = 0$, we
+must have either $h(\alpha) = 0$ or $k(\alpha) = 0$, which contradicts
+the minimality of $f$.
+
+\paragraph{Exercise 6.17}
+Show that the minimal polynomial for $\sqrt[3]{2}$ is $x^3 -2$.
+
+First we show that if $f = gh$, and $f \in \Z[x]$, $g, h \in \Q[x]$,
+then we actually have $g, h \in \Z[x]$ (this statement is sometimes
+called Gauss lemma).
+
+We can assume that $f$ is primitive: otherwise, if $p$ divides all
+coefficients of $f$, we replace $f$ with $f/p$, and $g$ with $g/p$,
+and we continue this until no $p$ divides all coefficients of $f$.
+
+Let $u \in \Z$ be the least common multiple of the denominators of $g$
+in their lowest terms, so that $ug \in \Z[x]$. Similarly, define $v
+\in \Z$. We then have $uvf = (ug)(vh)$. Since $f$ is primitive, then
+arguing similarly as in Exercise 6.5. we obtain $u = v = 1$. 
+
+Since $\sqrt[3]{2}$ clearly is a root of a given polynomial, it is
+enough to show that the polynomial is irreducible. Write $x^3 - 2 =
+(x-a)(x^2 + px + q)$. Then, by Gauss lemma, $a, p, q \in \Z[x]$, and
+so $2 = aq$, from which we deduce that $a = 1$ or $a = 2$. But neither
+1 nor 2 is a root of $x^3 - 2$, a contradiction.
+
+\paragraph{Exercise 6.18}
+Show that there exist algebraic numbers of arbitrarily high degree.
+
+This is equivalent to showing that there exist irreducible polynomials
+in $\Q[x]$ of arbitrarily high degree.
+
+We'll show that $f \in \Z[x], f(x) = x^n - 2$ is irreducible for any
+$n$. Suppose we can write $f = gh$. By Gauss lemma, we can assume that
+$g, h \in \Z[x]$. Let $\bar{f}$ be reduction modulo 2. We then obtain
+that $x^n = \bar{f} = \bar{fg} = \bar{f}\bar{g}$. Since $\Z/(2)$ is a
+field, factorization in $(\Z/(2))[x]$ is unique, and thus $\bar{g} =
+x^a$, $\bar{h} = x^b$ for some $a + b = n$. This means that free
+coefficients of $g, h \in \Z[x]$ are divisible by 2, which yields a
+contradiction, since then the free coefficient in $f$ would be
+divisible by 4.
+
+\paragraph{Exercise 6.19}
+Find the conjugates of $\cos(2 \pi/5)$.
+
+We'll first find the minimal polynomial of $\cos(2 \pi /5)$. Write
+$\zeta = \cos(2 \pi/5) + i \sin(2 \pi/5) = e^{2 i \pi/5}$ Then $\zeta$
+satisfies $\zeta^5 = 1$, so $\zeta$ is a root of a polynomial $x^5 - 1
+= (x-1)(x^4 + x^3 + x^2 + x + 1)$. Thus $\zeta$ is a root of $f(x) =
+(x^5-1)/(x-1) = x^4 + x^3 + x^2 + x + 1$. This polynomial is
+irreducible: if it was, then so would be $g(x) = f(x+1) = ((x+1)^5 -
+1)/x = x^4 + {5 \choose 1} x^3 + {5 \choose 2} x^2 + {5 \choose 3} x +
+5$, but this one is irreducible by the same argument as in Exercise
+6.18 (which essentially is Eisenstein criterion that's meant to be
+proven in later exercise). This proves that the degree $[\Q(\zeta):\Q]
+= 4$.
+
+Note now that since $\bar{\zeta}$ is also a root of $f$, $\cos(2 \pi/
+5) = (\zeta+\bar{\zeta})/2 \in \Q(\zeta)$, and so $\Q(\cos(2\pi/5))
+\subset \Q(\zeta)$, which implies that $[\Q(\cos(2\pi/5)) : \Q]$
+divides $[\Q(\zeta):\Q] = 4$. It cannot be equal to $4$, as then we'd
+have $\Q(\cos(2\pi/5)) = \Q(\zeta)$, but $\Q(\cos(2\pi/5))$ is
+contained in $\R$, while $\Q(\zeta)$ isn't. Thus. $[\Q(\cos(2\pi/5))
+  : \Q] = 2$, and we are looking for quadratic relation for $\cos(2
+\pi/5)$.
+
+Let $x = 2 \pi/5$. Note that $\cos(2x) = \cos(2\pi 2/5) = \cos(2\pi -
+2 \pi 2/5) = \cos (2 \pi 3/5) = \cos(3x)$
+
+We have:
+\begin{eqnarray}
+  \cos(2x) &=& \cos^2(x) - \sin^2(x) = 2 \cos^2(x) - 1 \\
+  \sin(2x) &=& 2 \cos(x) \sin(x) \\
+  \cos(3x) &=& \cos(2x)\cos(x) - \sin(2x)\sin(x) = (2 \cos^2(x) - 1)\cos(x) - 2 \cos(x) \sin^2(x) \\
+  &=& \cos(x)(2 \cos^2(x) - 1 - 2(1 - \cos^2(x))) = \cos(x)(4 \cos^2(x) -3) \\
+\end{eqnarray}
+
+Therefore, for $x = 2\pi/5$, we have $2 \cos^2(x) - 1 = \cos(x)(4
+\cos^2(x) -3)$. Thus, $\cos(2\pi/5)$ is a root of polynomial:
+\begin{equation}
+  f(z) = 4z^3 - 3z - 2 z^2 + 1 = 4z^3 - 2z^2 - 3z + 1
+\end{equation}
+We note that $f(1) = 4 - 2 - 3 + 1 = 0$. so $z-1$ divides $f$. We write:
+\begin{eqnarray}
+  f(z) &=& 4z^3 - 2z^2 - 3z + 1 \\
+  &=& 4z^2(z-1) + 4z^2 - 2z^2 - 3z + 1 \\
+  &=& 4z^2(z-1) + 2z(z-1) + 2z - 3z + 1 \\
+  &=& 4z^2(z-1) + 2z(z-1) - (z-1) \\
+  &=& (z-1)(4z^2 +2z -1)
+\end{eqnarray}
+Thus, we must have $g(\cos(2\pi/5)) = 0$ for $g(z) = 4z^2 +2z -1$. Roots of $g$ are:
+\begin{equation}
+  \frac{-2\pm\sqrt{20}}{8} = \frac{-1\pm\sqrt{5}}{4}
+\end{equation}
+These are conjugates of $\cos(2\pi/5)$.
+
+\paragraph{Exercise 6.20}
+Let $F$ be a subfield of $\C$ which is a finite-dimensional vector
+space over $\Q$ of degree [author probably meant dimension] $n$. Show
+that every element of $F$ is algebraic of degree at most $n$.
+
+Indeed, let $x \in F$ be any element. Consider set $\{1, x, x^2,
+\ldots\}$. Since $\dim_\Q(F) = n$, this family cannot be linearly
+independent. Let $k$ be smallest such that $\{1, x, \ldots, x^k\}$ is
+linearly dependent. Obviously $k \leq n$. Then the linear dependence
+relation between them gives us a polynomial which is satisfied by $x$.
+
+\paragraph{Exercise 6.21}
+Let $f(x) = \sum_{n=0}^\infty a_n x^n/n!$ and $g(x) =
+\sum_{n=0}^\infty b_n x^n/n!$ be power series with $a_n$ and $b_n$
+integers. If $p$ is a prime such that $p|a_i$ for $i = 0, \ldots,
+p-1$, show that each coefficient $c_t$ of the product $f(x)g(x) =
+\sum_{n=0}^\infty c_n x^n$ for $t = 0, \ldots, p-1$ may be written in
+the form $p(A/B)$, $p\not | B$.
+
+This is quite trivial. We have:
+\begin{equation}
+c_t = \sum_{i=0}^t (a_i/i!)(b_{t-i}/(t-i)!) = \frac{{t \choose i} a_i b_{t-i}}{t!}
+\end{equation}
+Since $p$ divides all $a_i$, ${t\choose i}$ are integers, and $p$
+doesn't divide $t!$ for $t \leq p-1$, the result follows.
+
+\paragraph{Exercise 6.22}
+Show that the relation $\epsilon \equiv 1 \pmod p$ in Proposition
+6.4.4 can also be achieved by replacing $x$ by $1+t$ instead of $e^z$.
+
+
+
 \end{document}
