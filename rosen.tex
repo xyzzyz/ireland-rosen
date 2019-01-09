@@ -1588,7 +1588,7 @@ divide $mn$, we get that the order is indeed $mn$.
 \paragraph{Ex. 4.15}
 Let $K$ be a field and $G \subset K^*$ a finite subgroup of the
 multiplicative group of $K$.  Extend the arguments used in the proof
-of Theorem 1 to show that $G$ is cyclic.
+of Theorem 4.1 to show that $G$ is cyclic.
 
 Let $n = |G|$. If $K$ has characteristic $0$, consider an extension
 $\Q \subset \Q(G)$. We say this is an algebraic extension: indeed,
@@ -3076,6 +3076,43 @@ doesn't divide $t!$ for $t \leq p-1$, the result follows.
 Show that the relation $\epsilon \equiv 1 \pmod p$ in Proposition
 6.4.4 can also be achieved by replacing $x$ by $1+t$ instead of $e^z$.
 
+Sorry, I'm too lazy. Pull requests welcome.
 
+\paragraph{Exercise 6.23}
+If $f(x) = x^n + a_1 x^{n-1} + \ldots + a_n$, $a_i \in \Z$, and $p$ is
+prime such that $p|a_i$ for $i = 1, \ldots, n$, and $p^2 \not | a_n$,
+show that $f(x)$ is irreducible over $\Q$ (Eisenstein's irreducibility
+criterion).
+
+This has been proven in Exercise 6.18 for $f(x) = x^n - 2$. In the
+general case the proof is identical.
+
+\section{Chapter 7}
+\paragraph{Exercise 7.1}
+Use the method of Theorem 7.1 to show that a finite subgroup of the
+multiplicative group of a field is cyclic.
+
+This is the same as Exercise 4.15.
+
+\paragraph{Exercise 7.2}
+Find the finite subgroups of $\R^*$ and $\C^*$ and show directly that
+they are cyclic.
+
+Let $k = \R$ or $\C$, and let $G \subset k^*$. Let $n = |G|$. Since
+every element $x$ of $G$ satisfies $x^n = 1$, taking norm we obtain
+$|x|^n = 1$, hence $|x| = 1$.
+
+In case $k = \R$, this immediately
+implies that $G \subset \{-1, 1\}$, so either $G = \{ 1 \}$ or
+$G = \{ -1, 1 \}$.
+
+In case $k = \C$, we note that since $x^n = 1$ for all $x \in G$, and
+since $f(x) = x^n - 1$ has at most $n$ roots in $\C$, since the group
+$G$ already has $n$ elements, we obtain that $G$ is exactly the set of
+all roots of $f(x)$. We note that all of
+$1, e^{2i\pi/n}, \ldots, e^{2 i\pi k/n}, \ldots, e^{2 i \pi (n-1)/n}$
+are roots of $f(x)$, and all of them are distinct. Since
+$e^{2 \pi i} = 1$ and $e^x e^y = e^{x+y}$, it is directly seen that
+this group is cyclic.
 
 \end{document}
